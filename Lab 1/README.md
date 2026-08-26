@@ -89,8 +89,7 @@ the interaction*:
 
   Sometimes the details of how the interaction worked are lost in history. Try filling it in with your imagination!
 
-**Describe your masterwork here, in your own words. What is the core interaction
-someone would recognize it by?**
+**Philips Hue is a smart lighting system that allows people to control the lights in a room through a smartphone app. Users can turn the lights on and off, adjust their brightness, and change their color. The main interaction is simple: the user makes a change on the phone, and the lighting in the physical room responds. This makes the room itself feel like part of the interface instead of the interaction only happening on a screen. One strength of Hue is that it gives users an easy way to change the mood of a space, although it also depends on an app and compatible smart lights. A weakness is that this interaction depends on an app and compatible smart lights, making it more complex than using a traditional light switch.**
 
 ## Part A. Plan
 
@@ -103,7 +102,22 @@ For your masterwork, reconstruct the interaction as a scene:
 - **Activity:** What is happening between the players and the light?
 - **Goals:** What is each player trying to do?
 
-**Describe your setting, players, activity, and goals here.**
+**Setting**
+
+The interaction takes place at home in the evening. The same room is used for different activities, including studying, relaxing, and having a drink during entertainment time.
+
+**Players**
+
+The main player is the user, who controls the Philips Hue lights through a smartphone. Other people, such as friends or roommates, may also be present and experience the changes in the lighting and atmosphere.
+
+**Activity**
+
+The user changes the lighting to match different activities. While studying, the user turns on bright white light to make the room easier to see. After studying, the user changes the light to a warmer and dimmer color to relax. Later, while making a drink and enjoying some entertainment, the user changes the light to pink or another colorful light to create a more fun atmosphere.
+
+**Goals**
+
+The user's goal is to make the same room more suitable for different activities and moods. Instead of using the same lighting all evening, the user can quickly change the brightness and color of the Philips Hue lights to create the environment they want.
+
 
 Now **sketch a 3 storyboards** of the interaction you are recreating. (The number may depend on the thing you drew, but stretch your thinking!) They
 don't need to be beautiful, but they must capture and communicate not only the behavior of the light, but how it affects
