@@ -140,10 +140,15 @@ it aloud.
 
 **Are there things that seemed better on paper than when acted out?**
 
+When we acted out the interaction, we realized that changing the light for every activity could feel a little too planned. On paper, moving from bright white light for studying to warm light for relaxing and then to colorful light for entertainment seemed very smooth. In practice, the transitions need to happen at the right moment or they can feel unnecessary. We also noticed that the user needs a clear reason to reach for the phone and change the lighting.
+
 **Did new ideas about the piece surface once you were on your feet?**
 
+Acting it out made us think more about the transition between activities instead of only focusing on the final light color. For example, the light could gradually dim and become warmer when the user finishes studying instead of changing instantly. We also realized that other people in the room would experience the lighting change even if they are not controlling it, so the interaction affects the whole shared space.
+
 **Are there key moments in the interaction where things could go in a different direction?**
-Iterate your storyboards to capture key non-sequential aspects of the interaction. 
+
+One key moment is when the user finishes studying. Instead of immediately switching to a relaxing light, they might keep the bright light on, turn the lights off completely, or choose a different color depending on what they want to do next. Another branching point happens during entertainment time, because the user could choose different colors or brightness levels depending on the mood they want. These choices show that Philips Hue is not a completely sequential interaction—the same controls can lead to many different lighting environments.
 
 ## Part C. Prototype the Light (light first!)
 
