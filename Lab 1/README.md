@@ -125,6 +125,8 @@ and the people around it. If you're new to storyboarding, read
 [this explanation](https://www.nngroup.com/articles/storyboards-visualize-ideas/).
 
 **Include pictures of your storyboards here.**
+<img width="1536" height="1024" alt="2561788131105_ pic_hd" src="https://github.com/user-attachments/assets/c6c472fa-931e-4499-8215-ac2d345593b6" />
+
 
 Use the storyboards to decide what interaction to prototype.
 
