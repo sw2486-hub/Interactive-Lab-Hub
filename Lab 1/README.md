@@ -175,7 +175,12 @@ video feed of whichever scene you want to capture.)
 
 **Include your first attempts at recording the wizarded set-up here.**
 
+The first video includes some behind-the-scenes moments and problems we encountered during our first attempt at recording. It shows how we tested the interaction, found issues with the timing and setup, and adjusted the prototype before recording the final version.
+https://github.com/user-attachments/assets/39c1091f-b419-4530-8613-d077642508ad
 
+
+
+The second video is our current complete version of the Philips Hue interaction prototype. It shows the full interaction and how the lighting changes to support different activities and moods at home.
 https://github.com/user-attachments/assets/e7e8c43b-b5b0-4d2d-b04d-eefa56fbaa39
 
 
@@ -201,6 +206,9 @@ the top of this lab: a viewer who knows the piece should recognize it; a viewer
 who doesn't should come away understanding what it's famous for. How might you illustrate the non-sequential aspects of the interaction in the sketch?
 
 **Include your video here.**
+https://github.com/user-attachments/assets/e0da3c0e-46b6-4fe8-bb9e-0dcfe5158cf8
+
+
 
 **Please indicate who you collaborated with on this lab.** Be generous in
 acknowledging their contributions, and credit any other influences (YouTube,
