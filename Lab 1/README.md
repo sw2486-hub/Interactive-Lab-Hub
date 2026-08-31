@@ -175,6 +175,11 @@ video feed of whichever scene you want to capture.)
 
 **Include your first attempts at recording the wizarded set-up here.**
 
+
+https://github.com/user-attachments/assets/e7e8c43b-b5b0-4d2d-b04d-eefa56fbaa39
+
+
+
 ## Part E. (optional) Costume the Device
 
 Only now should you worry about what the device looks like. Costume your phone so it reads
