@@ -251,6 +251,63 @@ your response engages with what your master was really doing.
 **Document everything here — especially the storyboard and video. Photos of the
 prototype are great too.**
 
+## Remix the Master
+
+For our remix, we decided to add motion and gestures as a new way to interact with the Philips Hue light. Instead of always using a phone or a physical button, the user can control the light with simple hand gestures.
+
+Our new interaction uses two gestures:
+
+### Gesture Interaction
+
+**Wave your hand → Turn the light ON/OFF**
+
+The user can wave their hand near the light to turn it on or off without reaching for a phone or physical switch.
+
+**Snap your fingers → Change the lighting scene**
+
+Each finger snap switches the light to the next preset color:
+
+- **White Light → Study**
+- **Warm Yellow Light → Relax**
+- **Pink Light → Entertainment**
+
+For example, when the user is studying, they can use bright white light. After studying, they can snap their fingers to change the light to warm yellow for relaxing. Later, during entertainment time, another snap changes the light to pink to create a more fun atmosphere.
+
+We chose this idea because using a phone to control a light is not always the most convenient option. The user's phone might not be nearby, or the user may want a faster and more direct way to change the lighting. Simple gestures make it possible to interact with the physical environment without opening an app.
+
+This remix combines Remix the Modality and Fix its Weaknesses. We add gesture and motion as new input modalities while also addressing one of the weaknesses we identified in the original Philips Hue design: its dependence on a phone or other controls.
+
+### Storyboard
+
+For our new interaction, we created a storyboard showing how gesture control can work across the same three everyday situations from our original Philips Hue recreation.
+
+The interaction begins with studying, where the user uses white light. When the user finishes studying and wants to relax, they snap their fingers and the light changes to warm yellow. Later, during entertainment time, another snap changes the light to pink. The user can also wave their hand at any time to turn the light on or off.
+
+
+### Prototype and Interaction
+
+Our prototype simulates a gesture-based interaction with the Philips Hue light. We use two different gestures for two different types of control.
+
+The interactions follow these sequences:
+
+**Hand Wave → Light Toggles ON/OFF**
+
+**Finger Snap → Switch to Next Preset Lighting Scene**
+
+The three preset scenes are:
+
+**White (Study) → Warm Yellow (Relax) → Pink (Entertainment) → White (Study)**
+
+This creates a simple cycle, allowing the user to move between different lighting scenes without using a phone.
+
+We used a Wizard-of-Oz setup to simulate the gesture interaction rather than implementing a physical motion or sound sensor. This allowed us to focus on testing how the gestures feel as a way of controlling the light.
+
+### Demo Video
+
+The demo video shows our remixed Philips Hue interaction in action. The user waves their hand to turn the light on or off and snaps their fingers to switch between the three preset lighting scenes: white for studying, warm yellow for relaxing, and pink for entertainment.
+
+
+
 ---
 
 
