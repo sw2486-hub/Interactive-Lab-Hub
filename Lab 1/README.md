@@ -323,6 +323,9 @@ The interactions follow these sequences:
 The three preset scenes are:
 
 **White (Study) → Warm Yellow (Relax) → Pink (Entertainment) → White (Study)**
+<img width="960" height="1280" alt="613801788908940_ pic" src="https://github.com/user-attachments/assets/579f30be-0474-4086-a5f3-8f918235637a" />
+<img width="960" height="1280" alt="613791788908939_ pic" src="https://github.com/user-attachments/assets/3d4415e3-5e9f-4c56-b810-0f0ad972c6b1" />
+<img width="960" height="1280" alt="613811788908941_ pic" src="https://github.com/user-attachments/assets/ca86c581-b39a-42d3-8e68-29f92ffcc7f4" />
 
 This creates a simple cycle, allowing the user to move between different lighting scenes without using a phone.
 
@@ -332,7 +335,7 @@ We used a Wizard-of-Oz setup to simulate the gesture interaction rather than imp
 
 The demo video shows our remixed Philips Hue interaction in action. The user waves their hand to turn the light on or off and snaps their fingers to switch between the three preset lighting scenes: white for studying, warm yellow for relaxing, and pink for entertainment.
 
-
+https://youtu.be/p-vD9bA2vkk
 
 ---
 
