@@ -335,7 +335,7 @@ We used a Wizard-of-Oz setup to simulate the gesture interaction rather than imp
 
 The demo video shows our remixed Philips Hue interaction in action. The user waves their hand to turn the light on or off and snaps their fingers to switch between the three preset lighting scenes: white for studying, warm yellow for relaxing, and pink for entertainment.
 
-https://youtu.be/p-vD9bA2vkk
+https://youtu.be/E6l1RT8QcY4
 
 ---
 
