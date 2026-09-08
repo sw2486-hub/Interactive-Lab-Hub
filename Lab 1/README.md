@@ -229,6 +229,29 @@ wasn't clear.
 
 **Who were the other groups you kibitzed with? Add links to their project pages here.**
 **Summarize the feedback you got from your partners here.**
+Find three other groups. (How? Maybe Slack?) Visit their Lab Hub pages, watch their
+videos, and give them reactions and feedback: tell them what you saw happening,
+guess the masterwork and the goals of the characters, and ask about anything that
+wasn't clear.
+
+**Who were the other groups you kibitzed with? Add links to their project pages here.**
+
+1. https://github.com/yw2895-ship-it/Interactive-Lab-Hub/blob/Fall2026/Lab%201/README.md
+2. https://github.com/Mmmmmmarius/Interactive-Lab-Hub/blob/Fall2026/Lab%201/Lab%201a.pdf
+3. https://github.com/jianingli189/Interactive-Lab-Hub/blob/Fall2026/Lab%201/README.md
+
+**Summarize the feedback you got from your partners here.**
+
+### Partner Feedback Summary
+
+**Feedback 1:**  
+The first partner thought our Philips Hue demo clearly showed how the user can change the lighting to support different activities and moods. They specifically mentioned that the bright white light for studying, warm light for relaxing, and colorful light for entertainment made the interaction easy to understand. From the video, they were also able to recognize that our masterwork was Philips Hue and understood that the main goal was to let users quickly adapt the same space for different needs. One suggestion they gave us was to show the phone control more clearly in the video. This would help viewers better understand what action the user takes and how that action causes each change in the lighting.
+
+**Feedback 2:**  
+The second partner liked the overall idea and direction of our Philips Hue project. They thought our approach was creative and modern while still considering how the interaction could be useful in real situations. They especially liked our storyboards and felt that the visualizations clearly communicated the different scenarios, the lighting outcomes, and the direct impact of those changes on the user. Their feedback showed us that the connection between our interaction idea and its practical everyday use was communicated successfully.
+
+**Feedback 3:**  
+The third partner liked how our storyboards showed three different everyday uses of Philips Hue. They thought studying, relaxing, and entertainment were common situations that demonstrated the practical value of changing the lighting for different activities. They also raised an important question about whether our light is supposed to be portable and carried to different places or stay in one location as an intelligent part of the room. They pointed out that this design decision could change how users interact with the device and what functions it should have. In addition, they encouraged us to think about other possible input methods. They asked why we did not use a physical button, which could provide a very direct interaction, and suggested that voice control might be even more convenient in some situations. This feedback encouraged us to think beyond phone control and consider more natural and flexible ways for users to interact with the light.
 
 ## Remix, Update, or Critique the Master
 
