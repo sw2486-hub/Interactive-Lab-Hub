@@ -282,6 +282,9 @@ This remix combines Remix the Modality and Fix its Weaknesses. We add gesture an
 For our new interaction, we created a storyboard showing how gesture control can work across the same three everyday situations from our original Philips Hue recreation.
 
 The interaction begins with studying, where the user uses white light. When the user finishes studying and wants to relax, they snap their fingers and the light changes to warm yellow. Later, during entertainment time, another snap changes the light to pink. The user can also wave their hand at any time to turn the light on or off.
+<img width="1536" height="1024" alt="1741788905525_ pic_hd" src="https://github.com/user-attachments/assets/6a9fe793-eaf7-469c-8583-cb66318bf49a" />
+
+
 
 
 ### Prototype and Interaction
