@@ -1,5 +1,5 @@
 # Interactive Prototyping: The Clock of Pi
-**NAMES OF COLLABORATORS HERE**
+**Shenye Wang -- sw2486 & Bowei Huang -- bh654**
 
 Does it feel like time is moving strangely during this semester?
 
@@ -157,6 +157,9 @@ You can look in `screen_boot_script.py` for how to display text on the screen!
 You can look in `image.py` for an example of how to display an image on the screen. Can you make it switch to another image when you push one of the buttons?
 
 \*\*\***Include a picture of your own Raspberry Pi displaying the piscreen.service with your unique MAC address. Additionally, please provide another picture showing the successful completion of the screen test.**\*\*\*
+<img width="1280" height="1707" alt="651001779-629c7239-b66c-494d-ac65-8771a313da34" src="https://github.com/user-attachments/assets/1e9f8b86-dd78-431b-8268-7f4a75b90fde" />
+<img width="960" height="1280" alt="651001969-5a01879b-5052-42ad-97fc-6358d7de5fc1" src="https://github.com/user-attachments/assets/b6be547d-beb7-4564-802e-73c8a8eecf05" />
+
 
 
 ## Part D. 
@@ -182,6 +185,11 @@ Now you should be able to edit python scripts with Thonny on your Pi.
 Option 3. A nowadays often preferred method is to use Microsoft [VS code to remote connect to the Pi](https://www.raspberrypi.com/news/coding-on-raspberry-pi-remotely-with-visual-studio-code/). This gives you access to a fullly equipped and responsive code editor with terminal and file browser.  
 
 Pro Tip: Using tools like [code-server](https://coder.com/docs/code-server/latest) you can even setup a VS Code coding environment hosted on your raspberry pi and code through a web browser on your tablet or smartphone! 
+### My Display Clock
+
+We updated `screen_clock.py` to display the current date and time on the MiniPiTFT. The clock updates every second.
+<img width="1280" height="1707" alt="651002400-664399a8-f234-42f8-b606-602b49085fea" src="https://github.com/user-attachments/assets/d7e301cd-1ccb-4cba-afb4-d92bf4791acd" />
+
 
 ## Part E. Read Part 2. Sketch and brainstorm further interactions and features you would like for your clock.
 
@@ -194,6 +202,8 @@ We strongly discourage literal digital or analog clock display: Be creative.
 
 ** Insert ideas, sketches, [Verplank diagrams](https://ccrma.stanford.edu/courses/250a-fall-2004/IDSketchbok.pdf)), storyboards for your ideas **
 
+<img width="1280" height="1707" alt="651001042-9a09c01d-4d44-41cc-b9c6-d1a298fdd410" src="https://github.com/user-attachments/assets/c3919216-cc5e-4448-8ae9-6f010a8c74b4" />
+<img width="1280" height="1707" alt="651001054-a2525895-87ad-4ce5-8c25-7cd6158500cb" src="https://github.com/user-attachments/assets/b392241c-b24c-473e-8bfd-09aa47c5cf6a" />
 
 
 **Put the names of the people you gave feedback to here. (Even better, add links to their repos here!)**
