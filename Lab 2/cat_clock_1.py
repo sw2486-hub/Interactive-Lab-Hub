@@ -104,6 +104,12 @@ while True:
     elif state == "play":
         draw.text((70, 105), "Let's play!",
                   font=font, fill=(255, 255, 255))
+        draw.text((5, 118), "Press B to restart",
+              font=small_font, fill=(255, 255, 255))
+
+        if not interact_button.value:
+            state = "meal"
+            time.sleep(0.2)
 
     disp.image(image, rotation)
     time.sleep(0.05)
