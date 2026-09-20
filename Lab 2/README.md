@@ -230,6 +230,16 @@ Three groups gave us feedback on our Virtual Cat Clock idea. They thought using 
 
 Start small, pick just one element of your overall idea, just to show you have a handle on the code and components.
 
+For our barebones prototype, we focused on one simple interaction from our Virtual Cat Clock idea: feeding the cat.
+
+The screen first shows a cat with the message **"Time to eat!"**. The user can press the physical B button on the MiniPiTFT to feed the cat. After the button is pressed, the screen displays **"Yummy! Thank you!"** and then changes to **"Let's play!"**.
+
+This prototype helped us test the basic interaction between the MiniPiTFT display, the physical button, and different cat states before building the complete daily routine in our final version.
+
+### Barebones Prototype Code
+
+The code for our barebones prototype is in `cat_clock_1.py`.
+
 \*\*\***Put a copy of your code in your Lab 2 Github repo.**\*\*\*
 
 ## Make a short video of your modified barebones PiClock
@@ -251,15 +261,166 @@ After that, Git will ask you to login to your GitHub account to push the updates
 Do take advantage of having done the previous iteration to refine and simplify your design.
 
 ** Insert any updates ideas, sketches, [Verplank diagrams](https://ccrma.stanford.edu/courses/250a-fall-2004/IDSketchbok.pdf))!, storyboards for your ideas **
+### Final Design: Virtual Cat Clock
+
+After testing our barebones prototype, we expanded the idea into a complete **Virtual Cat Clock**. Instead of using a traditional clock that only displays numbers, our design represents the passage of time through a virtual cat's daily routine.
+
+The main idea is that the cat changes its activity as time passes. Throughout the day, the cat sleeps, eats, plays, and waits for the user. This makes checking the clock feel more like taking care of a virtual pet rather than simply reading the time.
+
+We kept the interaction simple by using the two physical buttons on the MiniPiTFT:
+
+- **Button A – Switch Screen:** Switches between the main Cat Clock screen and the Cat Daily Routine screen.
+- **Button B – Interact:** Allows the user to respond to the cat, such as feeding the cat or playing with it.
+
+The current time is also displayed at the top of the Cat Clock screen so that the prototype still works as a clock while the cat provides a more playful representation of time.
+
+### Final Interaction Flow
+
+Our final prototype follows a simplified version of the cat's daily routine:
+
+**Sleep → Meal → Play → Waiting → Meal → Play → Waiting → Meal → Sleep**
+
+#### 1. Sleep
+
+The cat begins in the **Sleep** state. Its eyes are closed and "Zzz" appears next to the cat.
+
+The screen displays:
+
+**"Sleeping..."**
+
+In our demo version, the sleep state automatically moves to the next state after a few seconds. This allows us to demonstrate an entire day without waiting for the actual real-world schedule.
+
+#### 2. Meal
+
+After sleeping, the cat enters the **Meal** state.
+
+The screen displays:
+
+**"Time to eat!"**
+
+The user can press **Button B** to feed the cat.
+
+After the user presses the button, the cat responds with:
+
+**"Yummy! Thank you!"**
+
+This provides immediate feedback so the user knows that the interaction was successfully received. The clock then moves to the Play state.
+
+#### 3. Play
+
+After eating, the cat wants to play.
+
+The screen displays:
+
+**"Let's play!"**
+
+The user can press **Button B** again to interact with the cat.
+
+After the button is pressed, the cat responds with:
+
+**"That was fun!"**
+
+The clock then moves to the Waiting state.
+
+#### 4. Waiting
+
+During the **Waiting** state, the cat is waiting while the user is busy with other activities.
+
+The screen displays:
+
+**"Waiting..."**
+
+This represents longer periods of the day when the user may be at school, working, or away from the cat. For the demonstration, this state automatically moves forward after a few seconds.
+
+#### 5. Repeating the Daily Routine
+
+The Meal, Play, and Waiting states appear multiple times to represent different parts of the cat's day.
+
+The complete demo sequence is:
+
+**Sleep → Meal → Play → Waiting → Meal → Play → Waiting → Meal → Sleep**
+
+For example, the different meal states can represent the cat eating in the morning, evening, and before bedtime.
+
+After the final meal, the cat returns to the Sleep state, completing one full daily cycle.
+
+### Daily Routine Screen
+
+We also added a second screen to make the relationship between the cat's activities and time easier to understand.
+
+At any point, the user can press **Button A** to switch from the Cat Clock to the **Cat Daily Routine** screen.
+
+The routine screen shows examples of the cat's schedule:
+
+- **8:00 AM – Meal**
+- **Morning – Play**
+- **Daytime – Sleep / Wait**
+- **5:30 PM – Meal**
+- **11:30 PM – Meal + Sleep**
+
+Pressing **Button A** again returns the user to the main Cat Clock screen.
+
+This second screen connects the abstract cat states with a more recognizable daily schedule while still keeping the main clock interface simple.
+
+### From Barebones Prototype to Final PiClock
+
+Our barebones prototype only tested one small part of the idea:
+
+**Time to eat → Press Button B → Yummy! Thank you! → Let's play!**
+
+This helped us confirm that we could successfully connect the physical button input with changes on the MiniPiTFT display.
+
+For the final version, we expanded this interaction by adding:
+
+- Multiple cat states
+- A complete daily routine
+- Feeding interaction
+- Playing interaction
+- Automatic state transitions
+- Different visual expressions for the cat
+- A second Daily Routine screen
+- Button A for screen switching
+- Button B for interacting with the cat
+- A real-time clock display
+
+This iteration allowed us to move from one simple interaction to a more complete interactive clock experience.
+
+### Demo Mode
+
+For the final prototype, we use an accelerated **demo mode**. Sleep and Waiting states last only a few seconds instead of several hours.
+
+This does not represent the actual length of those activities. It is used so that the complete interaction flow can be demonstrated in a short video without waiting for an entire day.
+
+The Daily Routine screen shows how these states would correspond to different times in a real implementation.
+
 
 
 \*\*\***Put a copy of your code in your Lab 2 Github repo.**\*\*\*
 
+### Final Code
+
+The final version of our Virtual Cat Clock is implemented in:
+
+`cat_clock_2.py`
+
+The earlier barebones version is kept separately in:
+
+`cat_clock_1.py`
+
+Keeping both versions allows us to show how the project developed from a simple interaction into the complete PiClock.
+
 \*\*\***Take a video of your PiClock.**\*\*\*
+
 
 
 As always, make sure you document contributions and ideas from others (and AI) explicitly in your writeup.
 
 You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab.  Make sure the page for the group turn in is linked to your personal Interactive Lab Hub page. 
+
+### Contributions and Use of AI
+
+We developed the Virtual Cat Clock concept, daily routine, interaction flow, storyboard, and physical interaction design as a group. We tested the prototype on the Raspberry Pi and iterated on the design based on our testing and feedback.
+
+AI was used to help us translate the interaction design into Python code, organize the different cat states, troubleshoot parts of the implementation, and improve the documentation. We made the design decisions, tested the code on the Raspberry Pi, and refined the prototype based on the actual behavior of the device.
 
 
