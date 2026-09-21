@@ -246,6 +246,13 @@ The code for our barebones prototype is in `cat_clock_1.py`.
 
 \*\*\***Take a video of your barely modified PiClock.**\*\*\*
 
+
+https://github.com/user-attachments/assets/502cd505-037d-4a8a-ba6b-3b2e0c8d16f5
+
+
+
+
+
 After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
 
 ```
@@ -410,6 +417,14 @@ The earlier barebones version is kept separately in:
 Keeping both versions allows us to show how the project developed from a simple interaction into the complete PiClock.
 
 \*\*\***Take a video of your PiClock.**\*\*\*
+
+
+
+
+https://github.com/user-attachments/assets/fa9d7275-69da-4fca-83cc-d95557b15c22
+
+
+
 
 
 
