@@ -141,6 +141,10 @@ I tested tiny.en and base.en using the same 5-second recording. Tiny.en had a re
 
 \*\***Write your own script that verbally asks for a numerical input (a phone number, zipcode, number of pets) and records the answer the respondent provides.**\*\* Numbers are a good stress test — transcription systems make characteristic errors on digit strings, and you will want to know what they are before you design around them.
 
+<img width="410" height="467" alt="6b20e166-cbe2-44ff-bfbc-9a911d35d026" src="https://github.com/user-attachments/assets/b3d7a0c6-13b8-4255-9ff0-036fe2671be0" />
+
+For the numerical input test, I created a script that asked the user for a five-digit ZIP code and then recorded the response. I tested the recording with both tiny.en and base.en. The user said “07306.” Tiny.en transcribed it as “0, 7, 3, 0, 6” with a real-time factor of 0.20x, while base.en transcribed it as “0-7-3-0-6” with a real-time factor of 0.38x. Both models recognized the digits correctly, but they formatted the number differently. In this case, tiny.en was faster and was already accurate enough for the task.
+
 ## C. Turn-taking: knowing when someone has stopped talking
 
 Everything so far has worked on fixed audio files. A real conversational device does not get told when to start and stop recording — it has to decide. This is the problem that makes speech interfaces hard, and it is mostly not a speech recognition problem.
