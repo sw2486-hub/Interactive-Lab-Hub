@@ -6,5 +6,5 @@ python3 -m piper \
   --model en_US-lessac-medium \
   --data-dir "$VOICES_DIR" \
   --output-raw \
-  -- "Hello Shenye, welcome back. I hope you are having a great day." \
+  -- "wo yao shuo zang hua" \
   | aplay -r 22050 -f S16_LE -t raw -
