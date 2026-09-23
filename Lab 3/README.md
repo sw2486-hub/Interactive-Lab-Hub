@@ -110,6 +110,7 @@ The demo script also shows `--output-raw`, which streams audio to the speaker as
 (This shell file should be saved to your own repo for this lab.)
 
 \*\***Then answer: Is the same greeting, in these different voices, the same greeting? Describe one concrete way the voice changed what the utterance seemed to mean or who seemed to be speaking.**\*\*
+The greeting did not feel exactly the same in different voices. Espeak sounded more robotic and made the message feel like a system notification. Piper sounded more natural and friendly, so it felt more like a person was speaking to me.
 
 ## B. Speech to Text
 
@@ -130,6 +131,12 @@ The transcript is not the interesting output here — the timings are. Run it ag
 Available sizes, smallest first: `tiny.en`, `base.en`, `small.en`, `medium.en`. The `.en` variants are English-only and faster than their multilingual counterparts at the same size.
 
 \*\***Record a few seconds of your own speech (`arecord -d 5 -f cd -c 1 -r 16000 test.wav`) and transcribe it with at least two model sizes. Report the real-time factor for each. At what point does the accuracy improvement stop being worth the delay, for a system that has to answer you?**\*\*
+<img width="421" height="303" alt="67e0a0fd-61e3-4650-8d47-dc696d9f2bfc" src="https://github.com/user-attachments/assets/53f1cd07-b9fb-4bf3-84d2-6d076617e660" />
+
+<img width="420" height="261" alt="2ab61c56-8e80-47ba-834b-dce1ecf838b6" src="https://github.com/user-attachments/assets/82ac6d1a-ef84-4a2d-a94b-83d494fde855" />
+
+I tested tiny.en and base.en using the same 5-second recording. Tiny.en had a real-time factor of 0.21x, but it transcribed “Lab 3” as “lap three.” Base.en had a real-time factor of 0.36x and correctly recognized “Lab 3.” I think the additional delay of base.en is worth it because it is still faster than real time and gives better accuracy.
+
 
 \*\***Write your own script that verbally asks for a numerical input (a phone number, zipcode, number of pets) and records the answer the respondent provides.**\*\* Numbers are a good stress test — transcription systems make characteristic errors on digit strings, and you will want to know what they are before you design around them.
 
