@@ -131,6 +131,7 @@ The transcript is not the interesting output here — the timings are. Run it ag
 Available sizes, smallest first: `tiny.en`, `base.en`, `small.en`, `medium.en`. The `.en` variants are English-only and faster than their multilingual counterparts at the same size.
 
 \*\***Record a few seconds of your own speech (`arecord -d 5 -f cd -c 1 -r 16000 test.wav`) and transcribe it with at least two model sizes. Report the real-time factor for each. At what point does the accuracy improvement stop being worth the delay, for a system that has to answer you?**\*\*
+
 <img width="421" height="303" alt="67e0a0fd-61e3-4650-8d47-dc696d9f2bfc" src="https://github.com/user-attachments/assets/53f1cd07-b9fb-4bf3-84d2-6d076617e660" />
 
 <img width="420" height="261" alt="2ab61c56-8e80-47ba-834b-dce1ecf838b6" src="https://github.com/user-attachments/assets/82ac6d1a-ef84-4a2d-a94b-83d494fde855" />
