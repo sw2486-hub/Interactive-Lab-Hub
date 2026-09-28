@@ -167,6 +167,12 @@ Speak, pause, and watch it transcribe. Now change the endpointing threshold — 
 
 There is no correct value. A system that takes drink orders and a system that listens to someone think out loud want very different thresholds, and the right one depends on what your users are doing with their pauses.
 
+We tested different min-silence values to see how the system decides when a user has finished speaking.
+At 0.2 seconds, the system responded too quickly and sometimes split a normal sentence before I had finished speaking. For example, a short pause in the middle of a sentence could already be treated as the end of my turn.
+At 0.7 seconds, the interaction felt more natural, but it could still separate short responses from the words that followed if I paused briefly.
+At 1.5 seconds, the system gave me more time to think and finish speaking, but the response felt noticeably slower because I had to wait longer before the system recognized that my turn was over.
+Overall, I think a value around 0.7–1.0 seconds gives a better balance between avoiding interruptions and keeping the interaction responsive. The best threshold would still depend on the type of conversation and how much users normally pause while speaking.
+
 ### The complete loop
 
 `echo_bot.py` puts the pieces together: it listens, endpoints, transcribes, and speaks a reply through Piper. The dialogue policy is deliberately trivial — it repeats what you said — so that everything you notice is a property of the timing rather than the content.
@@ -181,9 +187,13 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 
 \*\***Post your storyboard and diagram here.**\*\*
 
+<img width="1280" height="1707" alt="3971790500580_ pic" src="https://github.com/user-attachments/assets/0ae15efe-c970-4fbe-8dd7-9628e2243357" />
+
 Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses.
 
 \*\***Please describe and document your process.**\*\*
+
+We designed a voice-controlled robot vacuum for someone who wants to clean a specific room without opening an app. I started with the command “Clean the living room,” then added a choice of cleaning mode and a confirmation before the vacuum starts. I also included an error response for when the vacuum does not understand the room. In Part C, the 0.2-second silence threshold cut my sentence short, so I chose 1.0 second of silence for this design. This timing is a starting point that I would check with a user.
 
 Your script should include the pauses. Where does your device wait, and for how long? You now know from Part C that this is a parameter you have to choose, not something that happens for free.
 
