@@ -204,6 +204,10 @@ Find a partner, and *without sharing the script with your partner* try out the d
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
 
 
+https://github.com/user-attachments/assets/b08ad9af-216a-4f96-a650-17dcafccc201
+
+When we acted out the dialogue, the user said “clean the table” instead of using the exact wording I had imagined in the script. The overall interaction still worked, but this showed that users may express the same request in different ways. The one-second pause gave the user enough time to finish speaking, and the confirmation step helped make sure the device understood the cleaning target correctly before starting. This made me realize that the real system should support flexible wording instead of expecting one exact command.
+
 ---
 
 # Lab 3 Part 2
