@@ -224,6 +224,9 @@ For Part 2, you will redesign the interaction with the speech-enabled device usi
 3. Make a new storyboard, diagram and/or script based on these reflections.
 4. (optional) Integrate [input devices](inputs.md) in the system
 
+<img width="1060" height="600" alt="image" src="https://github.com/user-attachments/assets/2b490ca4-ea4f-42e5-80e9-759a485c78bf" />
+
+
 ## Prototype your system
 
 The system should:
