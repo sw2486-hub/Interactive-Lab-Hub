@@ -110,6 +110,7 @@ The demo script also shows `--output-raw`, which streams audio to the speaker as
 (This shell file should be saved to your own repo for this lab.)
 
 \*\***Then answer: Is the same greeting, in these different voices, the same greeting? Describe one concrete way the voice changed what the utterance seemed to mean or who seemed to be speaking.**\*\*
+
 The greeting did not feel exactly the same in different voices. Espeak sounded more robotic and made the message feel like a system notification. Piper sounded more natural and friendly, so it felt more like a person was speaking to me.
 
 ## B. Speech to Text
@@ -139,7 +140,9 @@ Available sizes, smallest first: `tiny.en`, `base.en`, `small.en`, `medium.en`. 
 I tested tiny.en and base.en using the same 5-second recording. Tiny.en had a real-time factor of 0.21x, but it transcribed “Lab 3” as “lap three.” Base.en had a real-time factor of 0.36x and correctly recognized “Lab 3.” I think the additional delay of base.en is worth it because it is still faster than real time and gives better accuracy.
 
 
-\*\***Write your own script that verbally asks for a numerical input (a phone number, zipcode, number of pets) and records the answer the respondent provides.**\*\* Numbers are a good stress test — transcription systems make characteristic errors on digit strings, and you will want to know what they are before you design around them.
+\*\***Write your own script that verbally asks for a numerical input (a phone number, zipcode, number of pets) and records the answer the respondent provides.**\*\* 
+
+Numbers are a good stress test — transcription systems make characteristic errors on digit strings, and you will want to know what they are before you design around them.
 
 <img width="410" height="467" alt="6b20e166-cbe2-44ff-bfbc-9a911d35d026" src="https://github.com/user-attachments/assets/b3d7a0c6-13b8-4255-9ff0-036fe2671be0" />
 
