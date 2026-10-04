@@ -233,7 +233,12 @@ The system should:
 
 *Document how the system works.*
 
+Our prototype is a voice-controlled cleaning assistant built with a Raspberry Pi. The microphone acts as the main sensor and captures the user’s speech. The Raspberry Pi uses speech recognition to convert the spoken command into text, while a Wizard-of-Oz controller selects the appropriate response. The system then uses text-to-speech to reply through the speaker.
+Participants can give commands such as “Clean the table,” choose a cleaning mode, confirm the task, and later pause, resume, or stop the simulated cleaning process.
+
 *Include videos or screencaptures of both the system and the controller.*
+
+https://youtu.be/1c3hi0LVD9k
 
 ## Test the system
 
@@ -242,16 +247,20 @@ Try to get at least two people to interact with your system. (Ideally, you would
 Answer the following:
 
 ### What worked well about the system and what didn't?
-\*\**your answer here*\*\*
+
+The system worked well at guiding users through a simple cleaning task using voice interaction. Participants were able to give commands naturally, and the one-second silence threshold generally gave them enough time to finish speaking before the system responded. The confirmation step was also useful because it reduced the chance of starting the wrong cleaning task. However, speech recognition was not always perfect, especially when users spoke quickly or used unexpected wording. The system also depended on the Wizard to choose the correct response, so it was not fully autonomous.
 
 ### What worked well about the controller and what didn't?
-\*\**your answer here*\*\*
+
+The controller was simple and easy to use because the Wizard could select from predefined responses such as clarification, mode selection, confirmation, and start. This made it possible to react quickly during the interaction while keeping the device responses consistent. However, the controller required the Wizard to read the transcription and manually choose a response every turn. This could create delays, and it would become difficult to manage if the conversation became longer or more complex.
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
-\*\**your answer here*\*\*
+
+The WoZ interactions showed that users do not always use the exact phrases we expect. A more autonomous system should recognize different ways of expressing the same cleaning request and should be able to recover from misunderstandings by asking clarification questions. It should also automatically manage dialogue state, such as remembering the cleaning location and selected mode, instead of relying on the Wizard to track them manually. Timing is also important, because the system needs to respond quickly without interrupting the user.
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
-\*\**your answer here*\*\*
+
+The system could save each user utterance, the speech-to-text result, the Wizard’s selected response, and the timing between turns. This would create a dataset showing how people naturally phrase cleaning commands and how the system should respond. It would also be useful to record whether the transcription was correct and whether clarification was needed. Other sensing modalities could include proximity sensing to detect when a user approaches the device, a camera to observe gestures or user attention, and touch or button input for confirmation or stopping the cleaning task.
 
 <details>
   <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
