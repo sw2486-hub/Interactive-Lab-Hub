@@ -2,7 +2,7 @@
 
 <details>
 	<summary><strong>Instructions for Students (Click to Expand)</strong></summary>
-  
+  1
 	**Submission Cleanup Reminder:**
 	- This README.md contains extra instructional text for guidance.
 	- Before submitting, remove all instructional text and example prompts from this file.
