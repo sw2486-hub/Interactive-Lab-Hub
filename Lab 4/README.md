@@ -18,8 +18,9 @@
 
 ## Lab Overview
 Team: <canvas group name>  
-Members: Full Name (netid, github-handle), ...  
-Project name: <name>
+Members: Shenye Wang（sw2486） & Bowei Huang（bh654）
+
+Project name: Cup Companion
 
 
 For lab this week, we focus on both sensing and actuation, bringing new modes of input and output into your devices, while also prototyping the physical structure and overall look of the device. You will consider how the physical form supports sensing and actuation, and how these elements come together to shape the interaction and aesthetics of the device.
@@ -252,46 +253,45 @@ A servo motor is a rotary actuator that allows for precise control of angular po
 
 ---
 
-### Part D
-### Physical Interaction Design: Feast Automata
-
-**Feast Automata:** build a device that **transforms ordinary dining rituals into playful physical interactions.** Begin with a familiar experience around eating, drinking, cooking, serving, or sharing food, and explore how sensing and actuation might augment, exaggerate, automate, or reinterpret your dining experience.
-
-In this part, use the sensing techniques from Parts A–B and the servo actuation from Part C to develop a physical interaction.
-
-#### Physical considerations for sensing
-
-Sensors need to be positioned in specific locations or orientations to make them useful for an application. Choose a sensor that fits the dining interaction you want to explore. For example, a distance sensor could detect when a cup is placed on a coaster; where the sensor is positioned determines what it can reliably detect.
-
-Think about how the larger object needs to be shaped so the sensor can work reliably, where the actuator needs to sit, what moves, and how a person encounters the interaction.
-
-#### Physical Form and Housing
-
-Think about how your sensor, actuator, and electronics are physically arranged within your prototype. Consider where components need to be placed, what parts move, how the device is supported or enclosed, and how the overall form and aesthetics shape the interaction.
-
-Use cardboard, paper, found objects, or other low-fidelity materials to quickly prototype the physical structure before refining your final design.
-
-#### Optional Display Feedback: Qwiic OLED
-
-Your kit includes these [SparkFun Qwiic OLED screens](https://www.sparkfun.com/products/17153). These use less power than the MiniTFTs you have mounted on the GPIO pins of the Pi, but, more importantly, they can be more flexibly mounted elsewhere on your physical interface. The way you program this display is almost identical to the way you program a  Pi display. Take a look at `oled_test.py` and some more of the [Adafruit examples](https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/tree/master/examples).
-
-<p float="left">
-<img src="https://cdn.sparkfun.com//assets/parts/1/6/1/3/5/17153-SparkFun_Qwiic_OLED_Display__0.91_in__128x32_-01.jpg" height="200" />
-
-</p>
-
-
-As you develop your Feast Automata concept, consider where the sensor and actuator need to be placed, what parts move, how electronics are housed, and how the overall form and aesthetics support the interaction.
+### Part D -- Physical Interaction Design: Cup Companion
+Project Concept
+Cup Companion turns placing a cup on a coaster into a playful interaction. A proximity sensor detects the cup, and a servo makes a cardboard character wave. When the cup is removed, the arm returns to its resting position.
 
 **\*\*\*Draw 5 sketches that explore different physical arrangements for your sensing and actuation.\*\*\***
 
+Five Design Sketches
+We explored five physical arrangements for the same interaction:
+1. Side Buddy: The character stands beside the cup on a shared base.
+2. Backboard Buddy: The character is attached to a vertical backboard behind the cup.
+3. Raised Platform: A raised base provides space to house the electronics.
+4. Separate Modules: The character and coaster are separate, allowing their positions to be adjusted independently.
+5. Arch Buddy: An arch supports the character and positions the sensor above the cup.
+
+<img width="1280" height="1707" alt="4831791929424_ pic" src="https://github.com/user-attachments/assets/6e58a639-5146-4281-bef2-acfcc34a60e1" />
+
 **\*\*\*What questions do these sketches raise? What do you need to physically prototype to answer them?\*\*\***
+
+The sketches raised questions about sensor placement, arm clearance, and structural stability. Where should the sensor sit to reliably detect the cup? Could a hand placing the cup accidentally trigger the interaction? Would the waving arm hit the cup or backboard? Could the cardboard support the servo without bending or tipping?
+To answer these questions, we need to test sensor readings with and without a cup, try different cup positions, and prototype the arm’s movement and servo mounting.
 
 **\*\*\*Pick one design to prototype and explain why.\*\*\***
 
+We selected Design 2: Backboard Buddy because the vertical backboard provides a simple surface for mounting the character, sensor, and servo. The coaster gives users a clear place to put their cup, while the character remains visible above it. This arrangement also allows us to adjust component positions easily during testing.
+We plan to use a SparkFun VCNL4040 proximity sensor near the bottom of the backboard, facing the cup. The servo will be mounted behind the character’s shoulder and connected to a separate cardboard arm. The body will remain stationary while the arm waves.
+
 Build a cardboard or other low-fidelity physical prototype of your design.
 
+We built a rough prototype using cardboard for the base, vertical backboard, circular coaster, character, and separate arm. We positioned the sensor near the bottom of the backboard and used a cup to explore the overall layout.
+The video documents the intended interaction through manual simulation. The character is temporarily held in place during the demonstration; automatic sensing and servo movement have not yet been integrated into this prototype.
+For the next iteration, we will secure the character’s body, mount the servo, and test the arm’s range of movement. We will also adjust the sensor position and detection threshold using readings with and without the cup.
+
 **\*\*\*Document your rough prototype with photos and/or video.\*\*\***
+
+https://github.com/user-attachments/assets/61a3d197-d91c-48a4-9360-3b7e3afbb6f0
+
+
+
+
 
 ---
 
