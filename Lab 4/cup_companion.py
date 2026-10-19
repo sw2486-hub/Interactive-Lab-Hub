@@ -6,7 +6,7 @@ CUP_ON = 40
 CUP_OFF = 20
 SERVO_CH = 0
 
-REST_ANGLE = 40
+REST_ANGLE = 60
 WAVE_ANGLE = 100
 
 sensor = qwiic_proximity.QwiicProximity()
