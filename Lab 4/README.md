@@ -301,183 +301,51 @@ Following exploration and reflection from Part 1, complete the "looks like," "wo
 
 ---
 
-### Part E
+## Part E — Build & Integrate: Sensing + Actuation
 
-#### Build & Integrate: Sensing + Actuation
+### System Overview
 
-For Part 2, build the Feast Automata interaction you developed in Part D by connecting sensing/input to physical actuation.
+Cup Companion adds a playful response to placing a cup on a coaster. A SparkFun VCNL4040 proximity sensor detects the cup. The Raspberry Pi processes the reading and controls a servo through the SparkFun Servo pHAT.
 
-**Your prototype should:**
-- Use at least one sensing or input device.
-- Use servo-based physical actuation.
-- Connect sensing and actuation into a meaningful interaction around eating, drinking, cooking, serving, or sharing food.
-- Additional inputs, displays, LEDs, buttons, or other outputs are optional extensions.
+When a cup is detected, the servo moves back and forth three times to wave the character’s arm, then returns to its resting position. The system waits until the cup is removed before allowing another wave.
 
-**Document your system with:**
-- Code for your sensing + actuation prototype
-- Photos and/or video of the working prototype in action
-- A simple interaction diagram or sketch showing how sensing and actuation are connected
-- Written reflection: What did you learn about connecting sensing, movement, and physical form? What was fun, surprising, or challenging?
+### Hardware and Physical Arrangement
 
-**Questions to consider:**
-- How does your chosen sensor or input shape the physical response?
-- How does the physical arrangement of the sensor and actuator change the interaction?
-- What thresholds, timing, or movement patterns make the interaction feel clear or playful?
-- What changes when you adjust the sensor placement or servo motion?
+- Raspberry Pi runs the Python program.
+- VCNL4040 connects to the Servo pHAT through its Qwiic interface.
+- The servo connects to Channel 0 of the Servo pHAT.
+- The Pi and Servo pHAT each use their own USB-C power connection.
 
-Iterate on the sensing, movement, and physical form, and document what you discover.
+The planned final arrangement places the sensor near the bottom of the cardboard backboard, facing the cup. The servo will be secured behind the character’s shoulder, with a separate cardboard arm attached to its horn. The body will remain fixed while the arm moves.
 
-See encoder_accel_servo_dashboard.py in the Lab 4 folder for an optional example of chaining together three devices.
+### Interaction Flow
 
-**`Lab 4/encoder_accel_servo_dashboard.py`**
+**Cup placed → proximity reading rises → Pi confirms detection → servo waves three times → arm returns to rest**
 
-#### Example Application: Windmill Coaster
+**Cup removed → proximity reading falls → system resets for the next placement**
 
-Now that you have explored both sensing and actuation, here is a simple example that combines the two.
+### Code
 
-The **Windmill Coaster** uses a Qwiic distance/proximity sensor to detect when a cup is placed on a coaster. When the cup is detected, a servo motor animates a small windmill by sweeping it back and forth, turning an ordinary action during drinking into a playful physical interaction.
+[View cup_companion.py](cup_companion.py)
 
-<p align="center">
-    <img src="windmill_coaster11.gif" alt="Windmill Coaster Demo" width="400"/>
-</p>
+The program checks the sensor every 0.1 seconds while waiting for a cup. Three consecutive readings of at least 40 trigger the wave. Three consecutive readings of 20 or below reset the system after the cup is removed. Using different detection and removal thresholds helps prevent repeated triggering when readings fluctuate.
 
+The initial servo positions are 60° for rest and 100° for the raised arm, with a 0.3-second pause at each position. These angles will be adjusted after mounting the cardboard arm.
 
-This example demonstrates a simple interaction pipeline:
+### Testing and Iteration
 
-**cup placed → distance sensor detects cup → servo actuates windmill**
+We first tested the servo independently, then tested the proximity sensor with our cup. With the cup in position, readings were approximately 73–91. Without the cup, readings were approximately 5–8. We used this separation to choose 40 as the detection threshold and 20 as the removal threshold.
 
-Connect the Qwiic distance sensor to the Pi and connect the servo to Channel 0 of the Servo pHAT. Make sure the Servo pHAT is powered through its USB-C connection.
+We successfully tested the combined program: placing the cup triggered servo movement. The program includes a cup-presence state so the servo does not repeatedly wave while the cup remains in place.
 
-Run the example script:
+### Reflection and Next Steps
 
-```bash
-python windmill_coaster.py
-```
+The tests showed that sensor readings need to be interpreted in the context of the physical setup. The VCNL4040 reports proximity values rather than a direct distance in centimeters, so testing the actual cup helped us select useful thresholds.
 
-The script continuously reads the proximity value from the distance sensor. When the value passes a threshold, the servo begins animating the windmill. When the cup is removed, the servo stops and returns to its resting position.
+It was rewarding to see a simple cup placement produce physical movement. The next challenge is integrating that movement into the cardboard character. We still need to secure the servo and arm, check that the arm clears the backboard and cup, and confirm that the structure stays stable during waving.
 
-You may need to adjust `CUP_THRESHOLD` in [`windmill_coaster.py`](windmill_coaster.py) depending on the size of your cup and the physical placement of the sensor. You can run `qwiic_distance.py` first to compare readings with and without a cup.
+The sensing and servo control have been tested together. Final mounting and a demonstration of the assembled cardboard prototype are still in progress.
 
-Use this example as a starting point. Change the sensor, movement, physical form, or dining interaction to create your own Feast Automata variation.
-
-#### Optional Extensions
-
-The following examples are optional resources if you want to add more inputs or outputs to your prototype.
-
-##### Using Multiple Qwiic Buttons: Changing I2C Address (Physically & Digitally)
-
-If you want to use more than one Qwiic Button in your project, you must give each button a unique I2C address. There are two ways to do this:
-
-##### 1. Physically: Soldering Address Jumpers
-
-On the back of the Qwiic Button, you'll find four solder jumpers labeled A0, A1, A2, and A3. By bridging these with solder, you change the I2C address. Only one button on the chain can use the default address (0x6F).
-
-**Address Table:**
-
-| A3 | A2 | A1 | A0 | Address (hex) |
-|----|----|----|----|---------------|
-|  0 |  0 |  0 |  0 |    0x6F       |
-|  0 |  0 |  0 |  1 |    0x6E       |
-|  0 |  0 |  1 |  0 |    0x6D       |
-|  0 |  0 |  1 |  1 |    0x6C       |
-|  0 |  1 |  0 |  0 |    0x6B       |
-|  0 |  1 |  0 |  1 |    0x6A       |
-|  0 |  1 |  1 |  0 |    0x69       |
-|  0 |  1 |  1 |  1 |    0x68       |
-|  1 |  0 |  0 |  0 |    0x67       |
-| ...| ...| ...| ... |     ...      |
-
-For example, if you solder A0 closed (leave A1, A2, A3 open), the address becomes 0x6E.
-
-**Soldering Tips:**
-- Use a small amount of solder to bridge the pads for the jumper you want to close.
-- Only one jumper needs to be closed for each address change (see table above).
-- Power cycle the button after changing the jumper.
-
-##### 2. Digitally: Using Software to Change Address
-
-You can also change the address in software (temporarily or permanently) using the example script `qwiic_button_ex6_changeI2CAddress.py` in the Lab 4 folder. This is useful if you want to reassign addresses without soldering.
-
-Run the script and follow the prompts:
-```bash
-python qwiic_button_ex6_changeI2CAddress.py
-```
-Enter the new address (e.g., 5B for 0x5B) when prompted. Power cycle the button after changing the address.
-
-**Note:** The software method is less foolproof and you need to make sure to keep track of which button has which address!
-
-
-##### Using Multiple Buttons in Code
-
-After setting unique addresses, you can use multiple buttons in your script. See these example scripts in the Lab 4 folder:
-
-- **`qwiic_1_button.py`**: Basic example for reading a single Qwiic Button (default address 0x6F). Run with:
-	```bash
-	python qwiic_1_button.py
-	```
-
-- **`qwiic_button_led_demo.py`**: Demonstrates using two Qwiic Buttons at different addresses (e.g., 0x6F and 0x6E) and controlling their LEDs. Button 1 toggles its own LED; Button 2 toggles both LEDs. Run with:
-	```bash
-	python qwiic_button_led_demo.py
-	```
-
-Here is a minimal code example for two buttons:
-```python
-import qwiic_button
-
-# Default button (0x6F)
-button1 = qwiic_button.QwiicButton()
-# Button with A0 soldered (0x6E)
-button2 = qwiic_button.QwiicButton(0x6E)
-
-button1.begin()
-button2.begin()
-
-while True:
-		if button1.is_button_pressed():
-				print("Button 1 pressed!")
-		if button2.is_button_pressed():
-				print("Button 2 pressed!")
-```
-
-For more details, see the [Qwiic Button Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-button-hookup-guide/all#i2c-address).
-
----
-
-##### PCF8574 GPIO Expander: Add More Pins Over I²C
-
-Sometimes your Pi’s header GPIO pins are already full (e.g., with a display or HAT). That’s where an I²C GPIO expander comes in handy.
-
-We use the Adafruit PCF8574 I²C GPIO Expander, which gives you 8 extra digital pins over I²C. It’s a great way to prototype with LEDs, buttons, or other components on the breadboard without worrying about pin conflicts—similar to how Arduino users often expand their pinouts when prototyping physical interactions.
-
-**Why is this useful?**
-- You only need two wires (I²C: SDA + SCL) to unlock 8 extra GPIOs.
-- It integrates smoothly with CircuitPython and Blinka.
-- It allows a clean prototyping workflow when the Pi’s 40-pin header is already occupied by displays, HATs, or sensors.
-- Makes breadboard setups feel more like an Arduino-style prototyping environment where it’s easy to wire up interaction elements.
-
-**Demo Script:** `Lab 4/gpio_expander.py`
-
-<p align="center">
-    <img src="gpio_leds.gif" alt="GPIO Expander LED Demo" width="400"/>
-</p>
-
-We connected 8 LEDs (through 220 Ω resistors) to the expander and ran a little light show. The script cycles through three patterns:
-- Chase (one LED at a time, left to right)
-- Knight Rider (back-and-forth sweep)
-- Disco (random blink chaos)
-
-Every few runs, the script swaps to the next pattern automatically:
-```bash
-python gpio_expander.py
-```
-
-This is a playful way to visualize how the expander works, but the same technique applies if you wanted to prototype buttons, switches, or other interaction elements. It’s a lightweight, flexible addition to your prototyping toolkit.
-
----
-
-
----
 
 ---
 
