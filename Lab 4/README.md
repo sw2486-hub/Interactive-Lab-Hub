@@ -305,69 +305,121 @@ Following exploration and reflection from Part 1, complete the "looks like," "wo
 
 ### System Overview
 
-Cup Companion adds a playful response to placing a cup on a coaster. A SparkFun VCNL4040 proximity sensor detects the cup. The Raspberry Pi processes the reading and controls a servo through the SparkFun Servo pHAT.
+Cup Companion turns placing a cup on a coaster into a playful physical interaction. A SparkFun VCNL4040 proximity sensor detects the cup, and the Raspberry Pi controls a servo through the SparkFun Servo pHAT to wave a cardboard character’s arm.
 
-When a cup is detected, the servo moves back and forth three times to wave the character’s arm, then returns to its resting position. The system waits until the cup is removed before allowing another wave.
+When the cup is detected, the arm waves three times and returns to rest. The system waits for the cup to be removed before allowing another wave.
 
-### Hardware and Physical Arrangement
+### Hardware and Physical Integration
 
-- Raspberry Pi runs the Python program.
-- VCNL4040 connects to the Servo pHAT through its Qwiic interface.
-- The servo connects to Channel 0 of the Servo pHAT.
-- The Pi and Servo pHAT each use their own USB-C power connection.
+The Servo pHAT connects to the Pi’s GPIO header. The servo connects to Channel 0, and the VCNL4040 connects through the pHAT’s Qwiic interface. The Pi and Servo pHAT use separate USB-C power connections.
 
-The planned final arrangement places the sensor near the bottom of the cardboard backboard, facing the cup. The servo will be secured behind the character’s shoulder, with a separate cardboard arm attached to its horn. The body will remain fixed while the arm moves.
+We mounted the servo at the character’s shoulder and attached the separate cardboard arm to its horn. The character’s body stays fixed to the vertical backboard. The Pi and control board remain beside the model for access during testing.
 
-### Interaction Flow
+<img width="1280" height="1707" alt="3241792378141_ pic" src="https://github.com/user-attachments/assets/5e4c724d-c29f-4824-ad9a-c35a3073a026" />
 
-**Cup placed → proximity reading rises → Pi confirms detection → servo waves three times → arm returns to rest**
 
-**Cup removed → proximity reading falls → system resets for the next placement**
+*Assembly process: connecting the servo to the control board and attaching the cardboard arm to the servo mechanism.*
+
+The distance sensor is secured to the front of the backboard, facing the cup placement area. Its sensing surface remains exposed. The circular cardboard coaster gives the user a clear target for placing the cup.
+
+<img width="1280" height="1707" alt="3251792378142_ pic" src="https://github.com/user-attachments/assets/0497f166-53dc-4fe9-9d65-5438486d585a" />
+
+
+*The VCNL4040 is mounted on the backboard with its sensing surface facing the cup.*
+
+### Interaction Diagram
+
+```mermaid
+flowchart TD
+    A["User places cup on coaster"] --> B["VCNL4040 reads proximity"]
+    B --> C{"Three readings at least 40?"}
+    C -->|No| B
+    C -->|Yes| D["Pi commands Servo pHAT Channel 0"]
+    D --> E["Servo waves cardboard arm three times"]
+    E --> F["Arm rests; system waits for removal"]
+    F --> G{"Three readings at most 20?"}
+    G -->|No| F
+    G -->|Yes| B
+```
 
 ### Code
 
 [View cup_companion.py](cup_companion.py)
 
-The program checks the sensor every 0.1 seconds while waiting for a cup. Three consecutive readings of at least 40 trigger the wave. Three consecutive readings of 20 or below reset the system after the cup is removed. Using different detection and removal thresholds helps prevent repeated triggering when readings fluctuate.
+The program checks proximity approximately every 0.1 seconds while waiting. Three consecutive readings of at least 40 trigger the waving sequence. Three consecutive readings of 20 or below indicate removal and reset the system.
 
-The initial servo positions are 60° for rest and 100° for the raised arm, with a 0.3-second pause at each position. These angles will be adjusted after mounting the cardboard arm.
+The two thresholds provide a buffer against fluctuating readings. A cup-presence state prevents repeated waving while the cup stays on the coaster. Each wave alternates between two servo positions, with a 0.3-second pause at each position.
 
 ### Testing and Iteration
 
-We first tested the servo independently, then tested the proximity sensor with our cup. With the cup in position, readings were approximately 73–91. Without the cup, readings were approximately 5–8. We used this separation to choose 40 as the detection threshold and 20 as the removal threshold.
+We first tested the servo independently and then measured proximity values using our cup:
 
-We successfully tested the combined program: placing the cup triggered servo movement. The program includes a cup-presence state so the servo does not repeatedly wave while the cup remains in place.
+- **Cup present:** approximately 73–91.
+- **Cup absent:** approximately 5–8.
 
-### Reflection and Next Steps
+Based on these measurements, we selected 40 for detection and 20 for removal. These values were chosen for our tested cup and sensor arrangement, rather than as universal distance measurements.
 
-The tests showed that sensor readings need to be interpreted in the context of the physical setup. The VCNL4040 reports proximity values rather than a direct distance in centimeters, so testing the actual cup helped us select useful thresholds.
+We then tested the combined sensing and servo program before installing the mechanism in the cardboard model.
 
-It was rewarding to see a simple cup placement produce physical movement. The next challenge is integrating that movement into the cardboard character. We still need to secure the servo and arm, check that the arm clears the backboard and cup, and confirm that the structure stays stable during waving.
+During assembly, we explored a smaller waving range by reducing the difference between the resting and raised positions. This made the movement visibly smaller, showing that the servo angle needs to be judged with the actual cardboard arm attached. We used the movement tests to guide the physical assembly and arm clearance.
 
-The sensing and servo control have been tested together. Final mounting and a demonstration of the assembled cardboard prototype are still in progress.
+The attached video shows the assembled prototype responding to cup placement with physical arm movement.
+
+### Working Prototype Video
+
+
+https://github.com/user-attachments/assets/c81212f8-8f0a-43e9-9d39-bd29ef3e89c3
+
+
+*The demonstration shows the assembled device, cup placement and removal, and the servo-driven cardboard arm.*
+
+### Reflection
+
+We learned that sensing, movement, and physical form must be developed together. The sensor needs a clear view of the cup, while the coaster helps position the cup within the intended sensing area. Changing the sensor’s position or cup placement can change the readings and may require new thresholds.
+
+The servo also needs a firm mount so its motion moves the arm rather than the motor body. Testing the cardboard arm showed why movement settings cannot be judged only from an unloaded servo: a smaller angular range produced a noticeably smaller gesture.
+
+The most enjoyable part was seeing an ordinary cup placement make the cardboard character respond. The main challenge was translating working electronics into a physical structure with a fixed body, moving arm, and accessible wiring.
+
+One limitation is that the sensor detects nearby objects, not cup identity. A hand passing close to it may also trigger the interaction. Further testing with different cups and hand movements would help refine sensor placement and detection timing.
+
+### Contributions and AI Assistance
+
+We built and assembled the cardboard prototype, connected the hardware, and tested the interaction. ChatGPT helped develop the Python program, explain setup steps, and organize the documentation. The implementation uses the course examples for proximity sensing and Servo pHAT control.
 
 
 ---
 
-### Part F
+## Part F — Final Documentation
 
-### Final Documentation
+### Looks Like
 
-Document all the prototypes and iterations you have designed and worked on! Again, deliverables for this lab are writings, sketches, photos, and videos that show what your prototype:
-* "Looks like": shows how the device should look, feel, sit, weigh, etc.
-* "Works like": shows what the device can do
-* "Acts like": shows how a person would interact with the device
+Cup Companion has a cardboard base, a circular coaster, and a vertical backboard featuring a smiling character. A separate cardboard arm provides the moving element. The proximity sensor is mounted on the front of the backboard, while the Pi and Servo pHAT remain beside the model.
 
----
+The assembly photos in Part E document the arm mechanism and sensor mounting. The demonstration video shows the overall appearance of the assembled prototype.
 
-## Deliverables \& Submission for Lab 4
+### Works Like
 
-The deliverables for this lab are, writings, sketches, photos, and videos that show what your prototype:
-* "Looks like": shows how the device should look, feel, sit, weigh, etc.
-* "Works like": shows what the device can do.
-* "Acts like": shows how a person would interact with the device.
+The VCNL4040 reads proximity values from the cup placement area. The Raspberry Pi uses these readings to trigger a servo-driven wave through the Servo pHAT.
 
-For submission, the readme.md page for this lab should be edited to include the work you have done:
-* Upload any materials that explain what you did, into your lab 4 repository, and link them in your lab 4 readme.md.
-* Link your Lab 4 readme.md in your main Interactive-Lab-Hub readme.md. 
-* Labs are due on Mondays, make sure to submit your Lab 4 readme.md to Canvas.
+The arm waves three times and returns to rest. The program waits for the cup to be removed before resetting for another interaction.
+
+[View the sensing and actuation code](cup_companion.py)
+
+### Acts Like
+
+The user places a cup on the circular coaster, and the cardboard character responds by waving. The user can lift the cup and place it back to trigger another response. No separate button or screen interaction is required.
+
+For the Video please see part E -- Working Prototype Video
+
+### Prototype Development
+
+Our design developed through three stages:
+
+1. **Concept sketches:** We explored five arrangements of the character, sensor, actuator, and coaster. We selected the backboard design because it provided a simple mounting surface and kept the character visible.
+2. **Rough physical prototype:** We built the cardboard structure and manually simulated the intended interaction to explore the layout.
+3. **Integrated prototype:** We tested the sensor and servo, selected detection thresholds from measured readings, and attached the moving arm to the servo. We also explored a smaller movement range during assembly.
+
+The final prototype connects sensing, programmed movement, and a physical character to make an everyday drinking-related action playful. The development process showed that working code and electronics must be tested again within the physical structure.
+
+Process photos, the interaction diagram, testing details, and reflection are documented in Part E. The five design sketches and rough prototype are documented in Part D.
