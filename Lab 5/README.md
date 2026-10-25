@@ -284,7 +284,128 @@ Run it with a partner: have them walk in, sit down, leave. Compare the log with 
 
 \*\*\***Document the pipeline: at least three runs with the log, the question, Qwen's answer, and whether it was right. Include one case where Qwen got it wrong, and say what you changed in the interpreter and why.**\*\*\*
 
----
+#### Pipeline
+
+The camera captures frames, and YOLO detects people in them. The `interpret()` function turns the detection boxes into text readings describing the number of people, their position, and their estimated distance. The system saves a timestamped reading when it changes. Qwen then receives the text log and answers a question about it.
+
+#### Run 1 — Moving Out of the Camera Frame
+
+**Actual action:** I sat on a chair and moved toward the right until I was outside the camera frame.
+
+**Log:**
+
+```text
+04:27:35 1 person(s) at center/close
+04:27:38 1 person(s) at right/close
+04:27:39 nobody
+04:27:40 1 person(s) at right/close
+04:27:41 nobody
+04:27:42 1 person(s) at right/close
+04:27:43 nobody
+04:27:44 1 person(s) at right/close
+04:27:49 1 person(s) at right/far
+04:27:49 nobody
+04:27:50 1 person(s) at right/far
+04:27:56 nobody
+```
+
+**Question:** Describe what happened during this observation using only the log.
+
+**Qwen's answer:**
+
+> The camera recorded a sequence of events where one person remained consistently at the right side of the frame throughout the 31-second observation period. The only change occurred when the reading shifted to "nobody" at 04:27:39 and again at 04:27:56, indicating that no one was present in the room during those specific moments.
+
+**Response time:** 27.2 seconds.
+
+**Was it correct?** Partly. Qwen recognized that I was on the right for much of the observation, but it missed my initial position in the center and several changes to "nobody." It also treated missing detections as proof that the room was empty. I was still moving in front of the camera during the earlier gaps and only moved outside the frame at the end.
+
+The temporary missed detections may have resulted from the chair blocking part of my body or my body moving partly outside the frame. The "far" reading may also have come from a smaller detection box rather than an actual increase in distance.
+
+#### Run 2 — Partial Body Occlusion
+
+**Actual action:** I first stayed in view without any obstruction. Then I used a chair to cover my lower body. Finally, I crouched behind the chair so that only my head was visible.
+
+**Log:**
+
+```text
+04:31:20 nobody
+04:31:22 1 person(s) at center/close
+04:31:23 nobody
+04:31:24 1 person(s) at left/close
+04:31:31 1 person(s) at center/close
+04:31:32 nobody
+04:31:32 1 person(s) at center/close
+04:31:34 nobody
+04:31:34 1 person(s) at left/close
+04:31:40 nobody
+04:31:41 1 person(s) at left/close
+04:31:43 1 person(s) at center/close
+04:31:44 1 person(s) at left/close
+04:31:48 1 person(s) at center/close
+```
+
+**Question:** Did the person leave the room, or could the missing detections have another explanation? Use only the log.
+
+**Qwen's answer:**
+
+> The log indicates that a single person was present at the center/close location for multiple consecutive 31-second intervals (specifically from 04:31:22 to 04:31:48), with no other people detected in the room during those same periods. Since the detector only recorded changes when a reading changed, and no new readings were observed for any other person or location, it is highly probable that the single individual remained stationary throughout this entire duration. Therefore, the person did not leave the room; the missing detections are likely due to the camera's inability to detect movement or the person being too close to the lens to register as a distinct object.
+
+**Response time:** 23.7 seconds.
+
+**Was it correct?** Partly. Its conclusion that I did not leave matched my actual actions, but the log alone could not prove this. It incorrectly described multiple 31-second intervals and overlooked the changes between left and center. It also guessed that I remained stationary and gave explanations for missed detections that were not established by the log.
+
+The experiment showed that hiding part of my body could make detection unreliable. However, the interpreter did not record the chair or my posture, so Qwen could not reliably identify the cause.
+
+#### Interpreter Change
+
+I changed the no-detection reading in `interpret()`.
+
+**Before:**
+
+```python
+reading = f"{len(people)} person(s) at {', '.join(people)}" if people else "nobody"
+```
+
+**After:**
+
+```python
+reading = f"{len(people)} person(s) at {', '.join(people)}" if people else "no person detected in the camera frame"
+```
+
+I made this change because "nobody" sounded like a statement that the room was empty. The new wording describes only what the detector observed. A person could still be present but hidden, outside the frame, or missed by the model. I kept the detection threshold and position rules unchanged.
+
+#### Run 3 — Testing the Updated Interpreter
+
+**Test setup:** I repeated the partial-occlusion test from Run 2 using the updated interpreter and the same question.
+
+**Log:**
+
+```text
+04:35:59 1 person(s) at center/close
+04:36:02 no person detected in the camera frame
+04:36:03 1 person(s) at center/close
+04:36:04 1 person(s) at left/close
+04:36:05 1 person(s) at center/close
+04:36:18 no person detected in the camera frame
+04:36:18 1 person(s) at center/close
+```
+
+**Question:** Did the person leave the room, or could the missing detections have another explanation? Use only the log.
+
+**Qwen's answer:**
+
+> The log indicates that a person was detected at two distinct times (04:36:03 and 04:36:18), suggesting they were present during those intervals rather than leaving immediately after the first detection. The absence of a reading between 04:36:05 and 04:36:18 could be due to motion blur, camera shake, or a brief moment where the person was obscured by an object in the room before being re-detected. Therefore, it is unlikely that the person left the room entirely; their presence was likely intermittent or masked during those gaps.
+
+**Response time:** 22.9 seconds.
+
+**Was it correct?** Partly. Qwen considered that missing detections might not mean the person left, but it still misread the log. It said a person was detected at only two times, overlooking several other detection entries.
+
+It also treated the lack of new lines between 04:36:05 and 04:36:18 as a detection gap. Since the system logs only changes, this interval indicates that the reading remained unchanged until the next logged change. Its suggestions of motion blur and camera shake were not supported by the log.
+
+#### Summary
+
+Changing "nobody" to "no person detected in the camera frame" made the interpreter's wording more accurate, but it did not eliminate Qwen's reasoning errors. The model still overlooked entries, misunderstood the timing of a change-only log, and suggested causes that were not recorded. These experiments showed that both the interpreter's wording and the model's understanding of the log affect the final report.
+
 
 # Lab 5 Part 2: Overnight Sensation
 
