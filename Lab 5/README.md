@@ -201,6 +201,43 @@ A 0.8B model is slow and sometimes wrong. It will invent events that are not in 
 
 \*\*\***Ask Qwen three questions a bedside device might need to answer. Paste the questions, the answers and how long each took. Try one of them with `qwen3:0.6b` and compare.**\*\*\*
 
+#### Question 1 — qwen3.5:0.8b
+
+**Question:** The camera log shows: 02:00 nobody; 02:10 one person; 02:15 nobody. During what time interval was a person detected?
+
+**Answer:** A person was detected between 02:10 and 02:15.
+
+**Time:** 3.8 seconds.
+
+#### Question 2 — qwen3.5:0.8b
+
+**Question:** The camera did not detect a person in a dark room. Does this prove the room was empty? Explain briefly.
+
+**Answer:** No, the fact that the camera failed to detect a person does not necessarily mean the room was empty; it could simply be too dark for the device's sensors to see anyone at all.
+
+**Time:** 6.9 seconds.
+
+#### Question 3 — qwen3.5:0.8b
+
+**Question:** The overnight log shows no people detected from 23:00 to 07:00. Write a short morning report using only this information. Do not assume whether I was asleep.
+
+**Answer:** No one was detected in the overnight logs between 23:00 and 07:00. The device is currently awake and monitoring your room for activity.
+
+**Time:** 7.1 seconds.
+
+#### Smaller Model Comparison — qwen3:0.6b
+
+**Question:** The camera did not detect a person in a dark room. Does this prove the room was empty? Explain briefly.
+
+**Answer:** The camera's failure to detect a person in a dark room does not necessarily prove the room was empty. It could be due to environmental factors like poor lighting or interference, which may have caused the detection issue. The absence of a person doesn't directly confirm the room's emptiness, as other factors could influence the outcome.
+
+**Time:** 11.8 seconds.
+
+#### Observations
+
+Both models explained that failing to detect a person does not prove the room was empty. In this test, qwen3:0.6b took 11.8 seconds, while qwen3.5:0.8b took 6.9 seconds for the same question. The smaller model's answer was longer and more repetitive, while the larger model answered more directly.
+
+For Question 3, qwen3.5:0.8b correctly summarized the log but added that the device was currently monitoring the room. This information was not provided in the prompt. This showed me that the model can add unsupported details even when asked to use only the given information.
 
 ## Part E. 
 ### Connect: from YOLO readings to Qwen reasoning
