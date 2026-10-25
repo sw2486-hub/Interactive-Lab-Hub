@@ -133,6 +133,11 @@ Then press q to quit and run it again with a flag. Each one changes a single thi
 
 \*\*\***Include a short video or screenshots of the person detection. Write down three situations where it did not see you, or saw a person who was not there, and what you think the cause was.**\*\*\*
 
+1. When I stood too close to the camera, it failed to detect me. This was probably because only part of my body was visible, making it harder for the model to recognize a person.
+
+2. When I held a photo of a person on my phone still, the model detected the person in the photo even though no real person was there in that location. The model probably recognized the human features without distinguishing a photo from a real person.
+
+3. When I moved the phone around, the model failed to detect the person in the photo. The movement probably caused motion blur, making the person harder to recognize.
 
 ## Part C. 
 ### See more: hands and pose with MediaPipe
