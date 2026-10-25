@@ -108,6 +108,11 @@ pi@raspberrypi:~ $ ollama list
 
 \*\*\***Include a screenshot of `ollama list` showing your models, and the `bus.jpg` result and your own photo with their boxes.**\*\*\*
 
+<img width="446" height="42" alt="Unknown-1" src="https://github.com/user-attachments/assets/b8b7f941-908d-4116-b87f-43b38f226e15" />
+
+<img width="810" height="1080" alt="lab5_bus" src="https://github.com/user-attachments/assets/68320136-cc9d-4b58-89f3-007aa72d76c9" />
+
+<img width="640" height="480" alt="lab5_snap" src="https://github.com/user-attachments/assets/7f4aa087-837f-478c-b3da-8920ccf7e327" />
 
 ## Part B. 
 ### See: recognize people in real time with YOLO
@@ -132,6 +137,11 @@ Then press q to quit and run it again with a flag. Each one changes a single thi
 ```
 
 \*\*\***Include a short video or screenshots of the person detection. Write down three situations where it did not see you, or saw a person who was not there, and what you think the cause was.**\*\*\*
+
+<img width="1280" height="1707" alt="WechatIMG327" src="https://github.com/user-attachments/assets/7d9e6631-4856-4caa-969a-64c1296b7937" />
+
+<img width="1280" height="1707" alt="WechatIMG328" src="https://github.com/user-attachments/assets/57bbfb4c-7147-406d-b10f-87f95e1d4fa6" />
+
 
 1. When I stood too close to the camera, it failed to detect me. This was probably because only part of my body was visible, making it harder for the model to recognize a person.
 
@@ -165,6 +175,7 @@ Consider how you might use this position based approach to create an interaction
 
 \*\*\***Include a screenshot or short video of the hand pose demo, and write how you might use face, hand or body pose tracking in your observant system.**\*\*\*
 
+<img width="1280" height="1707" alt="WechatIMG329" src="https://github.com/user-attachments/assets/2c80c181-19be-41cf-8c5a-55df2b2c34ba" />
 
 I could use hand tracking to start the overnight recording in my observant system. Before bed, the user could hold an open palm in front of the camera for two seconds. The system would recognize the gesture and display a confirmation that recording has started. Holding the gesture for two seconds could help prevent accidental activation.
 
