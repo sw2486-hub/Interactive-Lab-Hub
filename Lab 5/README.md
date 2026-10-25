@@ -166,6 +166,8 @@ Consider how you might use this position based approach to create an interaction
 \*\*\***Include a screenshot or short video of the hand pose demo, and write how you might use face, hand or body pose tracking in your observant system.**\*\*\*
 
 
+I could use hand tracking to start the overnight recording in my observant system. Before bed, the user could hold an open palm in front of the camera for two seconds. The system would recognize the gesture and display a confirmation that recording has started. Holding the gesture for two seconds could help prevent accidental activation.
+
 ## Part D. 
 ### Reason: run Qwen on the Pi with Ollama
 
