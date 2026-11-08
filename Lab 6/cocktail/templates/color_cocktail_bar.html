@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Color Cocktail Bar · Lab 6</title>
+<style>
+:root{--bg:#111b19;--card:#1b2925;--line:#34433b;--cream:#f4edda;--muted:#acb9ac;--lime:#d8ee86;--red:#eb756c;--green:#9dd090;--blue:#91bce5}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--cream);font:16px system-ui,-apple-system,sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--lime);outline-offset:4px}button:disabled{opacity:.4;cursor:not-allowed}.wrap{max-width:1220px;margin:auto;padding:32px}header{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--line);padding-bottom:24px}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700}h1{font-family:Georgia,serif;font-size:clamp(32px,4vw,48px);font-weight:400;letter-spacing:-1.5px;margin:8px 0}p{line-height:1.55}.muted{color:var(--muted)}header p{margin:0;font-size:14px}.mode{display:flex;padding:5px;background:#0b1411;border:1px solid var(--line);border-radius:30px;flex-shrink:0}.mode button{border:0;background:none;color:var(--muted);padding:10px 18px;border-radius:25px}.mode button[aria-pressed=true]{background:var(--lime);color:#17221a;font-weight:700}.notice{padding:13px 0;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.dot{display:inline-block;width:7px;height:7px;border-radius:100%;background:var(--lime);margin-right:7px}.layout{display:grid;grid-template-columns:1fr 1.05fr;gap:24px;margin:12px 0 26px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}h2{font:normal 30px Georgia,serif;margin:10px 0 18px}.ticket{background:var(--cream);color:#26352b;position:relative;overflow:hidden}.ticket .eyebrow{color:#657348}.ticket:after{content:'';position:absolute;width:65px;height:65px;border:1px solid #b4bea2;border-radius:50%;top:24px;right:24px;opacity:.5}.ticket h2{max-width:85%;font-size:34px}.order-row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px dashed #c2c8b6;font-size:14px}.order-row span:first-child{color:#67715f}.order-row strong{text-align:right}.order-bottom{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:24px;font-size:13px}.secondary{border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--cream);padding:10px 14px}.ticket .secondary{border-color:#a9b397;color:#26352b}.drink-panel{display:flex;align-items:center;gap:16px;min-height:300px}.drink-art{width:52%;min-width:170px}.drink-meta{flex:1}.drink-meta h2{font-size:30px}.drink-meta p{font-size:14px}.chip{display:inline-block;padding:6px 10px;border-radius:20px;background:#263b30;color:var(--lime);font-size:12px}.glass-svg{width:100%;height:275px;overflow:visible}.meter{height:8px;background:#0e1914;border-radius:10px;overflow:hidden;margin-top:22px}.meter div{height:100%;background:var(--lime);width:0%;transition:width .1s linear}.status{font-size:14px;min-height:44px;margin:14px 0 0}.stations{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.station-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.station-id{width:34px;height:34px;border:1px solid var(--line);display:grid;place-items:center;border-radius:50%;font-size:13px}.connection{font-size:11px;color:var(--muted)}.connection.online{color:var(--lime)}.station h3{font:normal 25px Georgia,serif;margin:18px 0 6px}.choice-name{min-height:26px;margin:0 0 8px;font-size:16px;font-weight:600}.sensor-info{min-height:20px;font-size:11px;color:var(--muted)}.swatches{display:flex;gap:9px;margin:20px 0 12px}.swatch{flex:1;min-height:46px;border:2px solid transparent;border-radius:10px;background:#25362d;color:var(--cream);font-size:12px;display:flex;justify-content:center;align-items:center;gap:7px}.swatch:before{content:'';width:12px;height:12px;border-radius:50%;background:var(--color)}.swatch[aria-pressed=true]{border-color:var(--cream);background:#34473a}.clear{border:0;background:transparent;color:var(--muted);padding:6px 0;font-size:12px;text-decoration:underline}.legend{font-size:12px;line-height:1.8;color:var(--muted)}.live-setup{margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.live-setup input{background:#0f1c16;color:var(--cream);border:1px solid var(--line);border-radius:8px;padding:10px;flex:1;min-width:180px}.primary{background:var(--lime);color:#18221a;border:0;border-radius:10px;padding:11px 18px;font-weight:650}.footer{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:12px}details{margin-top:24px;color:var(--muted);font-size:13px}summary{cursor:pointer}details p{max-width:850px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0c1510;padding:14px;border-radius:12px;color:var(--cream)}[hidden]{display:none!important}.success .drink-panel{filter:drop-shadow(0 0 15px #d8ee8622)}@media(max-width:850px){.wrap{padding:22px}.layout{grid-template-columns:1fr}.stations{grid-template-columns:1fr}.station{padding:22px}.drink-panel{min-height:250px}header{align-items:flex-start;flex-wrap:wrap}.footer{flex-wrap:wrap}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><div class="eyebrow">Lab 6 / Distributed Interaction</div><h1>Color Cocktail Bar</h1><p class="muted">Three makers. Three sensors. One perfect mix.</p></div><div class="mode" aria-label="Input mode"><button id="demoMode" aria-pressed="true">Demo</button><button id="liveMode" aria-pressed="false">Live sensors</button></div></header>
+<div class="notice"><span id="modeNotice"><span class="dot"></span>Demo mode · use the color buttons below</span><span><strong id="score">0</strong> orders served this session</span></div>
+<section id="liveSetup" class="live-setup" hidden aria-label="Sensor bridge connection"><label for="endpoint">Event stream</label><input id="endpoint" value="/api/events" spellcheck="false" aria-describedby="bridgeHint"><button id="connect" class="primary">Connect</button><span id="bridgeHint" class="muted">Requires the local MQTT bridge.</span></section>
+<main><div class="layout">
+<section class="card ticket"><div class="eyebrow">The next round is on you</div><h2 id="orderTitle">Preparing order…</h2><div class="order-row"><span>A / Base</span><strong id="targetA"></strong></div><div class="order-row"><span>B / Flavor</span><strong id="targetB"></strong></div><div class="order-row"><span>C / Garnish</span><strong id="targetC"></strong></div><div class="order-bottom"><span id="orderNumber">ORDER 001</span><button id="newOrder" class="secondary">Skip order ↗</button></div></section>
+<section class="card" id="preview"><div class="eyebrow">Your creation / Live preview</div><div class="drink-panel"><div class="drink-art">
+<svg class="glass-svg" viewBox="0 0 240 275" role="img" aria-labelledby="glassTitle"><title id="glassTitle">Empty cocktail glass</title><defs><clipPath id="cup"><path d="M55 50 H185 L169 206 Q120 221 71 206 Z"/></clipPath><linearGradient id="liquidGradient" x1="0" y1="0" x2="0" y2="1"><stop id="liquidTop" offset="0%" stop-color="#52665a"/><stop id="liquidBottom" offset="100%" stop-color="#273e31"/></linearGradient></defs><ellipse cx="120" cy="247" rx="79" ry="10" fill="#0c1611"/><g clip-path="url(#cup)"><rect id="liquid" x="45" y="220" width="155" height="175" fill="url(#liquidGradient)"/><g fill="white" fill-opacity=".12" stroke="white" stroke-opacity=".2"><rect x="83" y="107" width="31" height="30" rx="6" transform="rotate(15 98 122)"/><rect x="126" y="128" width="32" height="30" rx="6" transform="rotate(-15 142 143)"/></g><g id="flavorBubbles" fill="white" opacity="0"><circle cx="94" cy="176" r="4"/><circle cx="143" cy="166" r="3"/><circle cx="121" cy="194" r="3"/></g></g><path d="M55 50 H185 L169 206 Q120 221 71 206 Z" fill="none" stroke="#dbe6d2" stroke-width="3"/><path d="M67 61 L80 192" stroke="white" opacity=".25" stroke-width="4" stroke-linecap="round"/><ellipse cx="120" cy="50" rx="65" ry="9" fill="none" stroke="#dbe6d2" stroke-width="2"/>
+<g id="garnishRED" hidden><path d="M155 86 L178 17" stroke="#e1c49a" stroke-width="3"/><path d="M149 31 Q178 -14 205 31 Z" fill="#ec8271"/><path d="M178 2 V31" stroke="#f8c0a0" stroke-width="2"/></g><g id="garnishGREEN" hidden><path d="M157 74 Q161 34 182 12" stroke="#92b877" stroke-width="3" fill="none"/><ellipse cx="166" cy="34" rx="10" ry="22" transform="rotate(-32 166 34)" fill="#8dc480"/><ellipse cx="184" cy="27" rx="10" ry="20" transform="rotate(35 184 27)" fill="#b8dc92"/></g><g id="garnishBLUE" hidden><path d="M153 112 L178 18" stroke="#a1c5e6" stroke-width="4"/><path d="M181 0 L185 12 L198 12 L188 20 L192 33 L181 25 L170 33 L174 20 L164 12 L177 12Z" fill="#a1c5e6"/></g></svg>
+</div><div class="drink-meta"><span class="chip" id="mixCount">0 / 3 ingredients</span><h2 id="mixTitle">An empty canvas.</h2><p class="muted" id="mixDescription">Choose a color at each station to build your drink.</p></div></div><div class="meter" role="progressbar" aria-label="Matching order hold time" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="holdMeter"><div id="holdBar"></div></div><p class="status" id="status" role="status" aria-live="polite">Waiting for all three makers.</p><button id="nextOrder" class="primary" hidden>Next order →</button></section>
+</div><div class="stations" id="stations"></div>
+<details><summary>How to play &amp; connect the sensors</summary><p>Each station selects one ingredient. Match all three items on the order and hold the combination for two seconds. After success, press Next order. Demo uses manual buttons and never counts as a hardware test.</p><p>Live mode needs a local server that serves this page and bridges MQTT to a Server-Sent Events endpoint. This HTML contains the frontend only: it does not connect directly to the course MQTT broker. The bridge should subscribe to <code>IDD/&lt;your-team&gt;/cocktail/input/+</code> and forward each validated sensor heartbeat in the following format:</p><pre>data: {"station":"A","color":"RED","rgb":[131,44,36]}
+
+</pre><p>Use station A, B or C and color RED, GREEN, BLUE, NONE or UNKNOWN. Send a heartbeat every 0.5–1 second, including when the color does not change. NONE/UNKNOWN clears a selection. A device goes offline after five seconds without data. Each Pi requires its own calibration. The optional rgb field contains three finite numbers from 0 to 65535. The endpoint must send Content-Type: text/event-stream. A JavaScript bridge may instead call <code>window.CocktailBar.receive(payload)</code> while Live mode is selected.</p><p>For a local Flask server, place this file in <code>templates/</code> and return it with <code>render_template('color_cocktail_bar.html')</code>. Use the same server origin for <code>/api/events</code>. No Python packages, external fonts or JavaScript libraries are required by the page itself.</p></details>
+</main><footer class="footer"><span>COLOR COCKTAIL BAR · Interactive Devices / Fall 2026</span><span>Color in. Collaboration out.</span></footer>
+</div>
+<script id="game-logic">
+'use strict';
+const CocktailLogic = (() => {
+  const colors = ['RED','GREEN','BLUE'];
+  const stations = ['A','B','C'];
+  const ingredients = {
+    A:{RED:'Strawberry',GREEN:'Green apple',BLUE:'Blueberry'},
+    B:{RED:'Cherry',GREEN:'Lime',BLUE:'Blue syrup'},
+    C:{RED:'Paper umbrella',GREEN:'Mint leaves',BLUE:'Star stirrer'}
+  };
+  const palette = {RED:'#eb756c',GREEN:'#9dd090',BLUE:'#91bce5'};
+  const fresh = (device,now) => Boolean(device && device.seen !== null && now-device.seen < 5000);
+  const valid = p => Boolean(p && stations.includes(p.station) && [...colors,'NONE','UNKNOWN'].includes(p.color));
+  const matches = (target,devices,now) => stations.every(id => fresh(devices[id],now) && devices[id].color === target[id]);
+  const order = (random=Math.random) => Object.fromEntries(stations.map(id => [id,colors[Math.floor(random()*3)]]));
+  function hold(state, matched, now) {
+    if (state.complete) return {start:state.start, complete:true, progress:1, awarded:false};
+    if (!matched) return {start:null,complete:false,progress:0,awarded:false};
+    const start=state.start === null ? now : state.start;
+    const progress=Math.min(1,(now-start)/2000);
+    return {start,complete:progress>=1,progress,awarded:progress>=1};
+  }
+  return {colors,stations,ingredients,palette,fresh,valid,matches,order,hold};
+})();
+</script>
+<script>
+'use strict';
+const L=CocktailLogic,$=id=>document.getElementById(id);
+let mode='demo',devices={},target={},score=0,orderNo=0,source=null,bridgeConnected=false;
+let hold={start:null,complete:false,progress:0};
+function blank(){devices=Object.fromEntries(L.stations.map(id=>[id,{color:null,seen:null,rgb:null}]))}
+function effective(id,now=performance.now()){return mode==='demo'||L.fresh(devices[id],now)?devices[id].color:null}
+function newOrder(){
+  let next=L.order();
+  if(orderNo && L.stations.every(id=>next[id]===target[id])) next.A=L.colors[(L.colors.indexOf(next.A)+1)%3];
+  target=next; orderNo++;hold={start:null,complete:false,progress:0};
+  for(const id of L.stations)$('target'+id).textContent=L.ingredients[id][target[id]];
+  $('orderTitle').textContent=target.A==='RED'?'A Berry Good Time':target.A==='GREEN'?'The Garden Party':'Blue Hour Special';
+  $('orderNumber').textContent='ORDER '+String(orderNo).padStart(3,'0');
+  render();
+}
+function receive(payload){
+  if(mode!=='live'||!L.valid(payload))return false;
+  const rgb=Array.isArray(payload.rgb)&&payload.rgb.length===3&&payload.rgb.every(n=>Number.isFinite(n)&&n>=0&&n<=65535)?payload.rgb:null;
+  devices[payload.station]={color:L.colors.includes(payload.color)?payload.color:null,seen:performance.now(),rgb};
+  render();return true;
+}
+window.CocktailBar=Object.freeze({receive});
+function setMode(next){
+  if(source){source.close();source=null}bridgeConnected=false;mode=next;blank();hold={start:null,complete:false,progress:0};
+  $('demoMode').setAttribute('aria-pressed',String(mode==='demo'));$('liveMode').setAttribute('aria-pressed',String(mode==='live'));
+  $('liveSetup').hidden=mode==='demo';
+  for(const button of document.querySelectorAll('.swatch,.clear'))button.disabled=mode==='live';
+  notice();render();
+}
+function notice(){
+  $('modeNotice').textContent=mode==='demo'?'● Demo mode · manual inputs, no Pi connected':bridgeConnected?'● Live mode · bridge connected; waiting for device heartbeats':'○ Live mode · bridge not connected';
+}
+function connect(){
+  if(source)source.close();
+  let url;
+  try{url=new URL($('endpoint').value,location.href);if(!['http:','https:'].includes(url.protocol))throw Error();}
+  catch{ $('bridgeHint').textContent='Serve this page over HTTP, then enter an HTTP(S) event endpoint.';return; }
+  source=new EventSource(url.href);$('bridgeHint').textContent='Connecting…';
+  source.onopen=()=>{bridgeConnected=true;notice();$('bridgeHint').textContent='Connected. Sensor status appears below.'};
+  source.onmessage=e=>{try{const accepted=receive(JSON.parse(e.data));if(!accepted)$('bridgeHint').textContent='Ignored invalid sensor message.'}catch{$('bridgeHint').textContent='Ignored malformed JSON message.'}};
+  source.onerror=()=>{bridgeConnected=false;notice();$('bridgeHint').textContent='Connection interrupted; retrying automatically.';blank();hold.start=null;render()};
+}
+function render(){
+  const now=performance.now(),selected=L.stations.map(id=>effective(id,now));
+  for(const id of L.stations){
+    const color=effective(id,now),device=devices[id],online=mode==='demo'||L.fresh(device,now);
+    $('choice'+id).textContent=color?L.ingredients[id][color]:'No selection';
+    $('connection'+id).textContent=mode==='demo'?'DEMO INPUT':online?'ONLINE':'OFFLINE';
+    $('connection'+id).className='connection'+(online?' online':'');
+    $('sensor'+id).textContent=mode==='live'&&online&&device.rgb?'Raw RGB · '+device.rgb.join(' / '):mode==='live'?'Show a calibrated color card':'Click a color to simulate this Pi';
+    for(const c of L.colors)$('button'+id+c).setAttribute('aria-pressed',String(c===color));
+  }
+  const count=selected.filter(Boolean).length;
+  $('mixCount').textContent=count+' / 3 ingredients';
+  const a=selected[0],b=selected[1],c=selected[2];
+  $('liquidTop').setAttribute('stop-color',b?L.palette[b]:a?L.palette[a]:'#52665a');
+  $('liquidBottom').setAttribute('stop-color',a?L.palette[a]:'#273e31');
+  $('liquid').setAttribute('y',count?String(155-count*24):'220');
+  $('flavorBubbles').setAttribute('opacity',b?'.5':'0');
+  for(const color of L.colors){const node=$('garnish'+color);if(color===c)node.removeAttribute('hidden');else node.setAttribute('hidden','');node.style.display=color===c?'':'none'}
+  $('mixTitle').textContent=count===0?'An empty canvas.':count<3?'Coming together…':L.ingredients.A[a]+' Fizz';
+  $('mixDescription').textContent=count===0?'Choose a color at each station to build your drink.':L.stations.map((id,i)=>selected[i]?L.ingredients[id][selected[i]]:null).filter(Boolean).join(' + ');
+  $('glassTitle').textContent=count?'Cocktail preview: '+$('mixDescription').textContent:'Empty cocktail glass';
+  const matched=mode==='demo'?L.stations.every((id,i)=>selected[i]===target[id]):L.matches(target,devices,now);
+  hold=L.hold(hold,matched,now);
+  if(hold.awarded){score++;$('score').textContent=score}
+  const percentage=Math.round(hold.progress*100);
+  $('holdBar').style.width=percentage+'%';$('holdMeter').setAttribute('aria-valuenow',String(percentage));
+  let status;
+  if(hold.complete)status='Order complete! Great teamwork. Ready for the next round?';
+  else if(matched)status='Perfect combination — hold your colors for 2 seconds…';
+  else if(count<3)status=mode==='live'&&L.stations.some(id=>!L.fresh(devices[id],now))?'Waiting for all three sensors to connect.':'Waiting for all three makers to choose a color.';
+  else status='All ingredients added. Adjust your colors to match the order.';
+  if($('status').textContent!==status)$('status').textContent=status;
+  $('nextOrder').hidden=!hold.complete;$('newOrder').disabled=hold.complete;
+  $('preview').classList.toggle('success',hold.complete);
+}
+const roles={A:'Choose the base',B:'Add the flavor',C:'Finish with a garnish'};
+for(const id of L.stations){
+  const article=document.createElement('section');article.className='card station';
+  article.innerHTML=`<div class="station-head"><span class="station-id">${id}</span><span id="connection${id}" class="connection">DEMO INPUT</span></div><h3>${roles[id]}</h3><p class="choice-name" id="choice${id}">No selection</p><div class="sensor-info" id="sensor${id}"></div><div class="swatches" role="group" aria-label="Station ${id} simulated color">${L.colors.map(c=>`<button class="swatch" id="button${id}${c}" style="--color:${L.palette[c]}" aria-pressed="false" aria-label="Station ${id}: ${c.toLowerCase()}, ${L.ingredients[id][c]}">${c[0]+c.slice(1).toLowerCase()}</button>`).join('')}</div><button class="clear" id="clear${id}">Remove card</button><div class="legend">${L.colors.map(c=>c[0]+c.slice(1).toLowerCase()+' → '+L.ingredients[id][c]).join('<br>')}</div>`;
+  $('stations').appendChild(article);
+  for(const c of L.colors)$('button'+id+c).onclick=()=>{if(mode==='demo'){devices[id]={color:c,seen:performance.now(),rgb:null};render()}};
+  $('clear'+id).onclick=()=>{if(mode==='demo'){devices[id]={color:null,seen:null,rgb:null};render()}};
+}
+$('demoMode').onclick=()=>{if(mode!=='demo')setMode('demo')};$('liveMode').onclick=()=>{if(mode!=='live')setMode('live')};
+$('connect').onclick=connect;$('newOrder').onclick=newOrder;$('nextOrder').onclick=newOrder;
+blank();newOrder();notice();setInterval(render,100);
+</script>
+</body>
+</html>
