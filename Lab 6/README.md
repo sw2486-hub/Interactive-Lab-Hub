@@ -60,9 +60,22 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 
 **💡 Brainstorm 5 ideas for messaging between devices**
 
-MQTT agrees on almost nothing in advance: you invent the topics and what the messages mean. Smart-home standards like Matter fix the vocabulary instead (every "light" behaves the same). Keep this trade-off in mind when you design your topics in Part C.
+Collaborative Color Mixer
+Each Pi reads a colored object and publishes its RGB values to IDD/ourteam/color/<device_id> as {"r":255,"g":0,"b":0}. A shared display combines the colors from all devices. Users work together to create a target color.
 
----
+Distributed Musical Instrument
+Three Pis control different musical features: proximity controls volume, gestures control rhythm, and color controls pitch. Each publishes sensor data under IDD/ourteam/music/<parameter>. A central program combines the messages to produce music that users control together.
+
+Remote Presence Display
+Each Pi detects whether someone is nearby and publishes {"present":true} or {"present":false} to IDD/ourteam/presence/<device_id>. Other Pis subscribe and show which locations are occupied, creating a simple sense of connection between separate spaces.
+
+Cooperative Gesture Game
+Each Pi detects a player's gesture and publishes {"gesture":"up"} to IDD/ourteam/game/<player_id>/gesture. A game controller sends a target gesture sequence to all devices. Players must perform their gestures in the correct order to complete the challenge.
+
+Shared Room Mood Display
+Each Pi measures a different aspect of the environment, such as light, proximity, or movement, and publishes readings under IDD/ourteam/room/<sensor_type>. A central program combines the readings into a room state, such as “quiet” or “active,” and publishes it to IDD/ourteam/room/mood. All Pi screens update to show the shared mood.
+
+Because MQTT does not define message meanings, our team would agree on topic names, device IDs, payload fields, units, and valid values before implementation. This flexibility lets us design custom interactions, but every device must follow the same conventions to interpret messages correctly.
 
 ## Part B: Collaborative Pixel Grid
 
@@ -128,6 +141,12 @@ Hold colored objects near sensor to change your pixel!
 **📸 Include: Screenshot of grid + photo of your Pi setup**
 
 ---
+<img width="1280" height="1707" alt="321794172382_ pic" src="https://github.com/user-attachments/assets/511c006d-ebd8-4784-a8bb-c9f63d6dc416" />
+
+
+
+https://github.com/user-attachments/assets/95009eee-a4cc-4b49-87d5-eafd7e94d4da
+
 
 ## Part C: Make Your Own
 
