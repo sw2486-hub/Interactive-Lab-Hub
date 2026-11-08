@@ -256,17 +256,12 @@ The server connects the physical sensor inputs to the webpage. The browser then 
 
 The following images document the physical setup and the interface during Live operation.
 
-**Hardware setup**
-
-[Insert photos showing each Pi, its APDS-9960 sensor, and the connections.]
-
-**Live sensor input**
-
-[Insert an actual Live-mode screenshot showing the stations’ selections.]
-
 **Collaborative interaction**
 
-[Insert an actual screenshot or video showing the participants using their sensors together.]
+<img width="761" height="600" alt="image" src="https://github.com/user-attachments/assets/30f4f758-074a-491f-889c-d83b6cf20d2d" />
+
+<img width="762" height="617" alt="image" src="https://github.com/user-attachments/assets/56174d4f-23c6-4544-afb2-b197ca4ce06a" />
+
 
 ### 6. Reflection
 
