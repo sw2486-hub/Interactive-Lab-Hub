@@ -1,6 +1,6 @@
 # Distributed Interaction
 
-**NAMES OF COLLABORATORS HERE**
+**Shenye Wang**
 
 For submission, replace this section with your documentation!
 
