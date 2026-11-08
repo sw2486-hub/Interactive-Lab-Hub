@@ -39,19 +39,21 @@ sudo apt-get install -y mosquitto-clients
 
 **Test it:**
 
+Set the `MQTT_USER` and `MQTT_PASSWORD` environment variables using the credentials supplied in the course instructions before running the commands below.
+
 **Subscribe to messages (listener):**
 ```bash
-mosquitto_sub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/#' -u idd -P 'device@theFarm'
+mosquitto_sub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/#' -u "$MQTT_USER" -P "$MQTT_PASSWORD"
 ```
 
 **Publish a message (sender):**
 ```bash
-mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'Hello!' -u idd -P 'device@theFarm'
+mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'Hello!' -u "$MQTT_USER" -P "$MQTT_PASSWORD"
 ```
 
 > **💡 Tips:**
 > - Replace `yourname` with your actual name in the topic
-> - Use single quotes around the password: `'device@theFarm'`
+> - Use single quotes around the password: `'MQTT_PASSWORD'`
 > - For your own projects, publish under your team's topic space: `IDD/<yourteam>/...` (for example `IDD/team3/bedroom/light`). Everyone shares one broker login, so anything you publish can reach everyone's projects.
 
 **🔧 Debug Tool:** View all MQTT messages in real-time at `http://farlab.infosci.cornell.edu:5001`
@@ -149,6 +151,12 @@ https://github.com/user-attachments/assets/95009eee-a4cc-4b49-87d5-eafd7e94d4da
 
 
 ## Part C: Make Your Own
+
+### Color Cocktail Bar — HTML Webpage
+
+[View the HTML webpage source](cocktail/templates/color_cocktail_bar.html)
+
+Download the HTML file and open it in a browser to try **Demo** mode. **Live sensors** mode uses the local Flask server and MQTT sensor bridge.
 
 **Requirements:**
 - 3+ people, 3+ Pis
@@ -293,14 +301,14 @@ Then wire your real sensors and actuators to the topics in your descriptions (th
 **Command line:**
 ```bash
 # See all IDD messages
-mosquitto_sub -h farlab.infosci.cornell.edu -p 1883 -t "IDD/#" -u idd -P "device@theFarm"
+mosquitto_sub -h farlab.infosci.cornell.edu -p 1883 -t "IDD/#" -u "$MQTT_USER" -P "$MQTT_PASSWORD"
 ```
 
 ---
 
 ## Troubleshooting
 
-**MQTT:** Broker `farlab.infosci.cornell.edu:1883`, user `idd`, pass `device@theFarm`
+**MQTT:** Broker `farlab.infosci.cornell.edu:1883`, user `MQTT_USER`, pass `MQTT_PASSWORD`
 
 **Sensor:** Check `i2cdetect -y 1`, APDS-9960 at `0x39`
 
