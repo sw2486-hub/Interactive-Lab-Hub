@@ -231,6 +231,9 @@ Each station uses a separate topic:
 | B | `IDD/sw2486/cocktail/input/B` |
 | C | `IDD/sw2486/cocktail/input/C` |
 
+<img width="2276" height="1280" alt="501794180376_ pic" src="https://github.com/user-attachments/assets/4d5a131f-6920-459e-9a7b-bdbe9e25a8f1" />
+
+
 An example message is:
 
 ```json
@@ -261,6 +264,8 @@ The following images document the physical setup and the interface during Live o
 <img width="761" height="600" alt="image" src="https://github.com/user-attachments/assets/30f4f758-074a-491f-889c-d83b6cf20d2d" />
 
 <img width="762" height="617" alt="image" src="https://github.com/user-attachments/assets/56174d4f-23c6-4544-afb2-b197ca4ce06a" />
+
+<img width="762" height="617" alt="image" src="https://github.com/user-attachments/assets/47bbc87d-7e41-473c-8be9-feb7540363de" />
 
 
 ### 6. Reflection
