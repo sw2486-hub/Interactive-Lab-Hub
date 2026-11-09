@@ -1,6 +1,6 @@
 # Distributed Interaction
 
-**Shenye Wang**
+**Shenye Wang -- sw2486 hanle gu -- hg542 Bowei Huang -- bh456**
 
 For submission, replace this section with your documentation!
 
